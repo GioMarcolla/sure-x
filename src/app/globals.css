@@ -1,26 +1,101 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html.light,
+html:not(.dark) {
+    --text-negative: #ffffff;
+
+    --bg: #f8fafc;
+    --bg-strong: #f1f5f9;
+    --ink: #0f172a;
+    --ink-muted: #64748b;
+
+    --accent: #6366f1;
+    --accent-strong: #4f46e5;
+    --accent-warm: #f59e0b;
+    --accent-mint: #10b981;
+    --accent-contrast: #0ea5e9;
+
+    --card: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(15, 23, 42, 0.08);
+    --border-color: rgba(15, 23, 42, 0.1);
+
+    --shadow-color: rgba(0, 0, 0, 0.06);
+    --shadow:
+        0 10px 25px -5px var(--shadow-color),
+        0 8px 10px -6px var(--shadow-color);
+    --glass-bg: transparent;
+    --glass-blur: blur(2px);
+
+    --highlight-color: rgba(209, 213, 219, 0.6);
+    --highlight-pale: #f59e0b;
+    --highlight-teal: #38bdf8;
+    --highlight-peach: #6366f1;
+    --highlight-intensity: 12%;
+    --error: #ef4444;
+
+    --bg-lg-red: linear-gradient(135deg, #ff5f6d 0%, #d31027 100%);
+    --bg-lg-green: linear-gradient(135deg, #42e695 0%, #3bb2b8 100%);
+    --bg-lg-blue: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+    --bg-lg-yellow: linear-gradient(135deg, #fdc830 0%, #f37335 100%);
+    --bg-lg-purple: linear-gradient(135deg, #da22ff 0%, #9114ff 100%);
+    --bg-lg-teal: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+
+    --bg-accent: color-mix(in srgb, var(--accent) 24%, var(--bg-strong));
+    --bg-accent-contrast: color-mix(
+        in srgb,
+        var(--accent-contrast) 28%,
+        var(--bg-strong)
+    );
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark mode: html has .dark */
+html.dark {
+    --text-negative: #f8fafc;
+
+    --bg: #030712;
+    --bg-strong: #0b0f1a;
+    --ink: #f8fafc;
+    --ink-muted: #94a3b8;
+
+    --accent: #8b5cf6;
+    --accent-strong: #7c3aed;
+    --accent-warm: #f43f5e;
+    --accent-mint: #34d399;
+    --accent-contrast: #06b6d4;
+
+    --card: rgba(30, 41, 59, 0.55);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.06);
+
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --shadow: 0 0 24px rgba(139, 92, 246, 0.18);
+    --glass-bg: transparent; /* Added missing variable */
+    --glass-blur: blur(2px);
+
+    --highlight-color: rgba(75, 85, 99, 0.5);
+    --highlight-pale: #f472b6;
+    --highlight-teal: #22d3ee;
+    --highlight-peach: #a78bfa;
+    --highlight-intensity: 20%;
+    --error: #ff4b4b;
+
+    --bg-lg-red: linear-gradient(135deg, #ff2d55 0%, #5e0b15 100%);
+    --bg-lg-green: linear-gradient(135deg, #00ff87 0%, #02341d 100%);
+    --bg-lg-blue: linear-gradient(135deg, #3772ff 0%, #081a44 100%);
+    --bg-lg-yellow: linear-gradient(135deg, #ffd700 0%, #4b3200 100%);
+    --bg-lg-purple: linear-gradient(135deg, #bc13fe 0%, #2d033b 100%);
+    --bg-lg-teal: linear-gradient(135deg, #00f5ff 0%, #003b46 100%);
+
+    --bg-accent: color-mix(in srgb, var(--accent) 35%, var(--bg-strong));
+    --bg-accent-contrast: color-mix(
+        in srgb,
+        var(--accent-contrast) 32%,
+        var(--bg-strong)
+    );
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg); /* Fixed: was --background */
+    color: var(--ink); /* Fixed: was --foreground */
 }

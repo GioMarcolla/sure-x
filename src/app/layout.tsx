@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { cookies } from 'next/headers';
+import SureThemeScript from '@/components/ui/SureThemeScript';
 
 import './globals.css';
 
@@ -72,10 +74,19 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = HTMLAttributes<HTMLDivElement> & {};
 
-const RootLayout: FC<RootLayoutProps> = ({ children }): ReactElement => {
+const RootLayout: FC<RootLayoutProps> = async ({
+    children,
+}): Promise<ReactElement> => {
+    const theme = (await cookies()).get('theme')?.value;
+
     return (
-        <html lang="en" className={`h-full antialiased`}>
-            <body className="min-h-full flex flex-col">
+        <html
+            lang="en"
+            className={`h-full antialiased ${theme ?? ''}`}
+            suppressHydrationWarning
+        >
+            <head>{!theme && <SureThemeScript />}</head>
+            <body className="min-h-full flex flex-col px-[5%]">
                 {children}
                 <SpeedInsights />
             </body>

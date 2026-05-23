@@ -3,9 +3,10 @@
 import { UserType, useUserStore } from '@/store/user.store';
 import { FC, HTMLAttributes, ReactElement, useState } from 'react';
 import SureButton from '@/components/SureButton';
-import SureUserAvatarWithMenu from './SureUserAvatarWithMenu';
-import SureLoginModal from './SureLoginModal';
-import SureRegisterModal from './SureRegisterModal';
+import SureUserAvatarWithMenu from '@/components/SureUserAvatarWithMenu';
+import SureLoginModal from '@/components/SureLoginModal';
+import SureRegisterModal from '@/components/SureRegisterModal';
+import SureThemeButton from '@/components/SureThemeButton';
 
 type SureUserNavProps = HTMLAttributes<HTMLElement> & {};
 
@@ -39,7 +40,7 @@ const SureUserNav: FC<SureUserNavProps> = (): ReactElement => {
                     </SureButton>
                 </div>
             )}
-            {/* <ThemeToggle className="border border-(--card-border) bg-(--glass-bg) shadow-sm backdrop-blur-sm" /> */}
+            <SureThemeButton className="border border-(--card-border) bg-(--glass-bg) shadow-sm backdrop-blur-sm" />
 
             <SureLoginModal
                 isLoginModalOpen={isLoginModalOpen}
@@ -53,5 +54,7 @@ const SureUserNav: FC<SureUserNavProps> = (): ReactElement => {
         </div>
     );
 };
+
+SureUserNav.displayName = 'SureUserNav';
 
 export default SureUserNav;
