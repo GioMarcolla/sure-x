@@ -6,7 +6,7 @@ import SureUserNav from './SureUserNav';
 
 type SureHeaderProps = HTMLAttributes<HTMLElement> & {};
 
-const SureHeader: FC<SureHeaderProps> = async (): Promise<ReactElement> => {
+const SureHeader: FC<SureHeaderProps> = (): ReactElement => {
     return (
         <header className="w-full h-16 flex items-center justify-between px-4 border-b">
             <nav className="navbar flex w-full flex-wrap items-center justify-start gap-4 px-4 py-3 text-sm font-semibold md:gap-8 md:px-8 md:py-4 md:text-base">
