@@ -3,22 +3,20 @@ import { FC, HTMLAttributes, ReactElement } from 'react';
 import SureLogo from '@/components/SureLogo';
 import { cn } from '@/lib/tailwind.utils';
 import SureUserNav from './SureUserNav';
+import SureThemeButton from '@/components/SureThemeButton';
 
 type SureHeaderProps = HTMLAttributes<HTMLElement> & {};
 
 const SureHeader: FC<SureHeaderProps> = (): ReactElement => {
     return (
-        <header className="w-full h-16 flex items-center justify-between px-4 border-b">
-            <nav className="navbar flex w-full flex-wrap items-center justify-start gap-4 px-4 py-3 text-sm font-semibold md:gap-8 md:px-8 md:py-4 md:text-base">
-                <div className="navbar-logo shrink-0">
-                    <Link
-                        href="/"
-                        className="flex items-center justify-between gap-1"
-                    >
+        <header className="flex w-full items-center justify-between border-b border-(--border-color-strong) px-[5%] backdrop-blur-lg">
+            <nav className="navbar my-4 flex w-full flex-wrap items-center justify-center gap-4 p-0 text-sm font-semibold md:gap-8 md:text-base">
+                <div>
+                    <Link href="/">
                         <SureLogo />
                     </Link>
                 </div>
-                <ul className="navbar-items flex flex-1 flex-wrap items-center justify-center gap-4 md:gap-8">
+                <ul className="navbar-items flex grow flex-wrap items-center justify-center gap-4 md:gap-8">
                     <li className="nav-item">
                         <Link
                             href="/#home-features"
@@ -51,6 +49,7 @@ const SureHeader: FC<SureHeaderProps> = (): ReactElement => {
                     </li>
                 </ul>
                 <SureUserNav />
+                <SureThemeButton className="border border-(--card-border) bg-(--glass-bg) shadow-sm backdrop-blur-sm" />
             </nav>
         </header>
     );

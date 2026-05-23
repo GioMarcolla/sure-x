@@ -6,7 +6,6 @@ import SureButton from '@/components/SureButton';
 import SureUserAvatarWithMenu from '@/components/SureUserAvatarWithMenu';
 import SureLoginModal from '@/components/SureLoginModal';
 import SureRegisterModal from '@/components/SureRegisterModal';
-import SureThemeButton from '@/components/SureThemeButton';
 
 type SureUserNavProps = HTMLAttributes<HTMLElement> & {};
 
@@ -40,7 +39,6 @@ const SureUserNav: FC<SureUserNavProps> = (): ReactElement => {
                     </SureButton>
                 </div>
             )}
-            <SureThemeButton className="border border-(--card-border) bg-(--glass-bg) shadow-sm backdrop-blur-sm" />
 
             <SureLoginModal
                 isLoginModalOpen={isLoginModalOpen}

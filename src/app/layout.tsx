@@ -86,7 +86,7 @@ const RootLayout: FC<RootLayoutProps> = async ({
             suppressHydrationWarning
         >
             <head>{!theme && <SureThemeScript />}</head>
-            <body className="min-h-full flex flex-col px-[5%]">
+            <body className="min-h-full flex flex-col">
                 {children}
                 <SpeedInsights />
             </body>
