@@ -1,13 +1,15 @@
+'use client';
+
 import Link from 'next/link';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 import SureLogo from '@/components/SureLogo';
 import { cn } from '@/lib/tailwind.utils';
-import { usePathname } from 'next/navigation';
 import SureUserNav from './SureUserNav';
+import { usePathname } from 'next/navigation';
 
 type SureHeaderProps = HTMLAttributes<HTMLElement> & {};
 
-const SureHeader: FC<SureHeaderProps> = (): ReactElement => {
+const SureHeader: FC<SureHeaderProps> = async (): Promise<ReactElement> => {
     const currentPath = usePathname();
 
     const getActiveClass = (path: string) => {
