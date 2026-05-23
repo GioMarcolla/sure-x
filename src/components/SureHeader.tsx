@@ -1,21 +1,12 @@
-'use client';
-
 import Link from 'next/link';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 import SureLogo from '@/components/SureLogo';
 import { cn } from '@/lib/tailwind.utils';
 import SureUserNav from './SureUserNav';
-import { usePathname } from 'next/navigation';
 
 type SureHeaderProps = HTMLAttributes<HTMLElement> & {};
 
 const SureHeader: FC<SureHeaderProps> = async (): Promise<ReactElement> => {
-    const currentPath = usePathname();
-
-    const getActiveClass = (path: string) => {
-        return currentPath === path ? 'active' : '';
-    };
-
     return (
         <header className="w-full h-16 flex items-center justify-between px-4 border-b">
             <nav className="navbar flex w-full flex-wrap items-center justify-start gap-4 px-4 py-3 text-sm font-semibold md:gap-8 md:px-8 md:py-4 md:text-base">
@@ -32,8 +23,7 @@ const SureHeader: FC<SureHeaderProps> = async (): Promise<ReactElement> => {
                         <Link
                             href="/#home-features"
                             className={cn(
-                                'text-(--ink-muted) transition-colors hover:text-(--accent-strong)',
-                                getActiveClass('/')
+                                'text-(--ink-muted) transition-colors hover:text-(--accent-strong)'
                             )}
                         >
                             Features
@@ -43,8 +33,7 @@ const SureHeader: FC<SureHeaderProps> = async (): Promise<ReactElement> => {
                         <Link
                             href="/#account"
                             className={cn(
-                                'text-(--ink-muted) transition-colors hover:text-(--accent-strong)',
-                                getActiveClass('/pricing')
+                                'text-(--ink-muted) transition-colors hover:text-(--accent-strong)'
                             )}
                         >
                             Pricing
@@ -54,8 +43,7 @@ const SureHeader: FC<SureHeaderProps> = async (): Promise<ReactElement> => {
                         <Link
                             href="/#haze-map-intro"
                             className={cn(
-                                'text-(--ink-muted) transition-colors hover:text-(--accent-strong)',
-                                getActiveClass('/team')
+                                'text-(--ink-muted) transition-colors hover:text-(--accent-strong)'
                             )}
                         >
                             Team
