@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { FC, HTMLAttributes, ReactElement } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import './globals.css';
 
@@ -74,7 +75,10 @@ type RootLayoutProps = HTMLAttributes<HTMLDivElement> & {};
 const RootLayout: FC<RootLayoutProps> = ({ children }): ReactElement => {
     return (
         <html lang="en" className={`h-full antialiased`}>
-            <body className="min-h-full flex flex-col">{children}</body>
+            <body className="min-h-full flex flex-col">
+                {children}
+                <SpeedInsights />
+            </body>
         </html>
     );
 };
