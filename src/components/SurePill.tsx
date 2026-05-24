@@ -1,7 +1,15 @@
 import { cn } from '@/lib/tailwind.utils';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 
-const COLOR_MAP: Record<string, string> = {
+const TINT_MAP: Record<string, string> = {
+    primary: 'bg-(--accent)/30 border-(--accent)/10',
+    strong: 'bg-(--accent-strong)/30 border-(--accent-strong)/10',
+    warm: 'bg-(--accent-warm)/30 border-(--accent-warm)/10',
+    mint: 'bg-(--accent-mint)/30 border-(--accent-mint)/10',
+    contrast: 'bg-(--accent-contrast)/30 border-(--accent-contrast)/10',
+};
+
+const GLOW_MAP: Record<string, string> = {
     primary: '--accent',
     strong: '--accent-strong',
     warm: '--accent-warm',
@@ -31,12 +39,12 @@ const SurePill: FC<SurePillProps> = ({
         <span
             className={cn(
                 'flex flex-row justify-between rounded-full border-2 px-4 py-1 backdrop-blur-sm backdrop-opacity-10',
-                `bg-(${COLOR_MAP[tint]})/30 border-(${COLOR_MAP[tint]})/10 text-(--ink)`,
+                TINT_MAP[tint],
                 className
             )}
             style={{
                 boxShadow: glow
-                    ? `0 0 ${GLOW_SIZE} ${GLOW_OFFSET} color-mix(in srgb, var(${COLOR_MAP[tint]}) 50%, transparent)`
+                    ? `0 0 ${GLOW_SIZE} ${GLOW_OFFSET} color-mix(in srgb, var(${GLOW_MAP[tint]}) 50%, transparent)`
                     : undefined,
             }}
             {...props}
