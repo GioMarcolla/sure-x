@@ -83,11 +83,11 @@ const RootLayout: FC<RootLayoutProps> = async ({
     return (
         <html
             lang="en"
-            className={`h-full antialiased ${theme ?? ''}`}
+            className={`min-h-dvh antialiased ${theme ?? ''}`}
             suppressHydrationWarning
         >
             <head>{!theme && <SureThemeScript />}</head>
-            <body className="flex min-h-full flex-col">
+            <body className="relative flex min-h-dvh flex-col">
                 {children}
                 <SpeedInsights />
                 <Analytics />
@@ -95,5 +95,7 @@ const RootLayout: FC<RootLayoutProps> = async ({
         </html>
     );
 };
+
+RootLayout.displayName = 'RootLayout';
 
 export default RootLayout;
