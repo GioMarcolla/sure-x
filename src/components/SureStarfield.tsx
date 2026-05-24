@@ -58,11 +58,16 @@ const HUE_CORES: Record<StarHue, string> = {
 type SureStarfieldProps = HTMLAttributes<HTMLElement> & {};
 
 const SureStarfield: FC<SureStarfieldProps> = ({ className }): ReactElement => {
-    const [mounted, setMounted] = useState(false);
-    const isDarkTheme: Boolean | undefined = document.getElementsByTagName('html')[0]?.classList.contains('dark');
+    const [mounted, setMounted] = useState<Boolean>(false);
+    const [isDarkTheme, setIsDarkTheme] = useState<Boolean | undefined>(false);
 
     useEffect(() => {
         const raf = requestAnimationFrame(() => setMounted(true));
+
+        setIsDarkTheme(
+            document.getElementsByTagName('html')[0]?.classList.contains('dark')
+        );
+
         return () => cancelAnimationFrame(raf);
     }, []);
 
@@ -113,7 +118,6 @@ const SureStarfield: FC<SureStarfieldProps> = ({ className }): ReactElement => {
                                     backgroundColor: color,
                                     boxShadow: `0 0 20px  ${color}, 0 0 30px ${color}, 0 0 40px transparent`,
                                 }}
-                                
                             >
                                 {/* Cross arm 1-1 — diagonal / */}
                                 <div
