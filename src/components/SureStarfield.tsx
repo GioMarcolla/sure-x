@@ -19,8 +19,8 @@ interface Star {
 }
 
 // ─── TUNE THESE ───────────────────────────────────────
-const SPEED = 1.5; // Higher = faster movement (divides animation duration)
-const DISTANCE = 2; // Higher = stars drift farther (multiplies drift px)
+const SPEED = 1; // Higher = faster movement (divides animation duration)
+const DISTANCE = 1; // Higher = stars drift farther (multiplies drift px)
 
 const CROSS_ARM_LENGTH = 60; // px — length of each cross arm
 const CROSS_GLOW_BLUR = 60; // px — softness of the cross glow
@@ -59,6 +59,7 @@ type SureStarfieldProps = HTMLAttributes<HTMLElement> & {};
 
 const SureStarfield: FC<SureStarfieldProps> = ({ className }): ReactElement => {
     const [mounted, setMounted] = useState(false);
+    const isDarkTheme: Boolean | undefined = document.getElementsByTagName('html')[0]?.classList.contains('dark');
 
     useEffect(() => {
         const raf = requestAnimationFrame(() => setMounted(true));
@@ -110,8 +111,7 @@ const SureStarfield: FC<SureStarfieldProps> = ({ className }): ReactElement => {
                                 className="absolute top-1/2 left-1/2 h-[1.5px] w-[1.5px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40"
                                 style={{
                                     backgroundColor: color,
-                                    boxShadow: `0 0 20px 2px ${color}, 0 0 40px 4px ${color}`,
-                                    opacity: 0.2,
+                                    boxShadow: `0 0 20px  ${color}, 0 0 30px ${color}, 0 0 40px transparent`,
                                 }}
                                 
                             >

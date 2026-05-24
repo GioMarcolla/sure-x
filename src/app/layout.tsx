@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import { cookies } from 'next/headers';
 import SureThemeScript from '@/components/ui/SureThemeScript';
 
@@ -86,9 +87,10 @@ const RootLayout: FC<RootLayoutProps> = async ({
             suppressHydrationWarning
         >
             <head>{!theme && <SureThemeScript />}</head>
-            <body className="min-h-full flex flex-col">
+            <body className="flex min-h-full flex-col">
                 {children}
                 <SpeedInsights />
+                <Analytics />
             </body>
         </html>
     );

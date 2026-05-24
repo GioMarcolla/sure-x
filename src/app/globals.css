@@ -106,10 +106,11 @@ html.dark {
     0%,
     100% {
         opacity: 0.25;
-        transform: scale(0.6);
+        transform: scale(0.7);
     }
+
     50% {
-        opacity: 1;
+        opacity: 0.75;
         transform: scale(1.3);
     }
 }
@@ -119,6 +120,7 @@ html.dark {
         transform: translate(-50%, -50%)
             translate3d(var(--drift-x), var(--drift-y), 0);
     }
+
     25% {
         transform: translate(-50%, -50%)
             translate3d(
@@ -127,6 +129,7 @@ html.dark {
                 0
             );
     }
+
     50% {
         transform: translate(-50%, -50%)
             translate3d(
@@ -135,6 +138,7 @@ html.dark {
                 0
             );
     }
+
     75% {
         transform: translate(-50%, -50%)
             translate3d(
@@ -143,6 +147,7 @@ html.dark {
                 0
             );
     }
+
     100% {
         transform: translate(-50%, -50%)
             translate3d(var(--drift-x), var(--drift-y), 0);
