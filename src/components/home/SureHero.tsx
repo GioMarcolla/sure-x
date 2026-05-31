@@ -19,8 +19,8 @@ const SureHero: FC<SureHeroProps> = (): ReactElement => {
             <div className="flex flex-1 grow flex-col gap-8 px-4">
                 <div
                     className={cn(
-                        'flex w-full flex-col justify-center gap-4',
-                        'xs:flex-row'
+                        'flex flex-col justify-center gap-4',
+                        'sm:flex-row'
                     )}
                 >
                     <SurePill text="SurePlay AI!" glow icon={Sparkles} />
