@@ -52,25 +52,24 @@ const SureWorkflowMap: FC<SureWorkflowMapProps> = (): ReactElement => {
             </div>
             <h2
                 className={cn(
-                    'flex flex-col justify-center align-middle items-baseline gap-4 text-center text-5xl font-extrabold',
-                    'md:flex-row md:text-6xl'
+                    'items-baseline justify-center gap-4 text-center align-middle text-5xl font-extrabold',
+                    'md:text-6xl'
                 )}
             >
-                <span>How your</span>{' '}
+                <span>From a single choice to an</span> <br />
                 <span
                     className={cn(
                         'font-fraunces text-7xl text-(--accent-contrast) italic',
                         'lg:text-8xl'
                     )}
                 >
-                    decisions
+                    ever-growing map!
                 </span>{' '}
-                <span>level up!</span>
             </h2>
             <p className="text-lg text-(--ink-muted) sm:text-xl">
-                From a single choice to an ever-growing map! Every choice you make
-                evolves in a playful, adaptive adventure that delivers insights and 
-                results faster and better than you ever!
+                Every choice you make evolves in a playful, adaptive adventure
+                that delivers insights and results faster and better than you
+                ever!
             </p>
             <div className={cn('flex flex-col gap-16', 'lg:flex-row')}>
                 <SureQuestPathArt className="flex-1" />

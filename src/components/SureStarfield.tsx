@@ -2,6 +2,8 @@
 
 import { FC, HTMLAttributes, ReactElement, useEffect, useState } from 'react';
 import { cn } from '@/lib/tailwind.utils';
+import usePrefersReducedMotion from '@/hooks/usePrefersReducedMotion';
+import useIsMobile from '@/hooks/useIsMobile';
 
 type StarHue = 'accent' | 'contrast' | 'warm' | 'mint' | 'bright';
 
@@ -58,18 +60,8 @@ const HUE_CORES: Record<StarHue, string> = {
 type SureStarfieldProps = HTMLAttributes<HTMLElement> & {};
 
 const SureStarfield: FC<SureStarfieldProps> = ({ className }): ReactElement => {
-    const [mounted, setMounted] = useState<Boolean>(false);
-    const [isDarkTheme, setIsDarkTheme] = useState<Boolean | undefined>(false);
-
-    useEffect(() => {
-        const raf = requestAnimationFrame(() => setMounted(true));
-
-        setIsDarkTheme(
-            document.getElementsByTagName('html')[0]?.classList.contains('dark')
-        );
-
-        return () => cancelAnimationFrame(raf);
-    }, []);
+    const prefersReducedMotion = usePrefersReducedMotion();
+    const isMobile = useIsMobile();
 
     return (
         <div
@@ -89,112 +81,113 @@ const SureStarfield: FC<SureStarfieldProps> = ({ className }): ReactElement => {
                 }}
             />
 
-            {mounted &&
-                STAR_DATA.map((star) => {
-                    const color = HUE_CORES[star.hue];
+            {!(prefersReducedMotion || isMobile)
+                ? STAR_DATA.map((star) => {
+                      const color = HUE_CORES[star.hue];
 
-                    return (
-                        <div
-                            key={star.id}
-                            className="absolute"
-                            style={{
-                                left: star.left,
-                                top: star.top,
-                                width: `${star.size}px`,
-                                height: `${star.size}px`,
-                                // Center the large gradient
-                                transform: 'translate(-50%, -50%)',
-                                backgroundImage: `radial-gradient(circle, color-mix(in srgb, ${color}, transparent 80%) 0%, color-mix(in srgb, ${color}, transparent 95%) 1%, transparent 70%)`,
-                                mixBlendMode: 'screen',
-                                // Pass the drift values to CSS
-                                ['--drift-x' as string]: star.driftX,
-                                ['--drift-y' as string]: star.driftY,
-                                animation: `star-twinkle ${star.twinkleDur} ease-in-out ${star.delay} infinite alternate, star-drift ${star.duration} ease-in-out ${star.delay} infinite alternate`,
-                            }}
-                        >
-                            <div
-                                className="absolute top-1/2 left-1/2 h-[1.5px] w-[1.5px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40"
-                                style={{
-                                    backgroundColor: color,
-                                    boxShadow: `0 0 20px  ${color}, 0 0 30px ${color}, 0 0 40px transparent`,
-                                }}
-                            >
-                                {/* Cross arm 1-1 — diagonal / */}
-                                <div
-                                    style={{
-                                        position: 'absolute',
-                                        top: '50%',
-                                        left: '50%',
-                                        width: `${CROSS_ARM_LENGTH}px`,
-                                        height: '2px',
-                                        transform:
-                                            'translate(-40%, -40%) rotate(45deg)',
-                                        background: `linear-gradient(90deg, transparent 0%, ${color} 45%, ${color} 55%, transparent 100%)`,
-                                        boxShadow: `0 0 ${CROSS_GLOW_BLUR}px 2px --color-mix(in srgb, ${color}, transparent 80%), 0 0 ${CROSS_GLOW_BLUR * 2}px 4px ${color}`,
-                                        opacity: 0.2,
-                                    }}
-                                />
-                                {/* Cross arm 1-1 — diagonal / */}
-                                <div
-                                    style={{
-                                        position: 'absolute',
-                                        top: '50%',
-                                        left: '50%',
-                                        width: `${CROSS_ARM_LENGTH}px`,
-                                        height: '2px',
-                                        transform:
-                                            'translate(-60%, -60%) rotate(45deg)',
-                                        background: `linear-gradient(90deg, transparent 0%, ${color} 45%, ${color} 55%, transparent 100%)`,
-                                        boxShadow: `0 0 ${CROSS_GLOW_BLUR}px 2px --color-mix(in srgb, ${color}, transparent 80%), 0 0 ${CROSS_GLOW_BLUR * 2}px 4px ${color}`,
-                                        opacity: 0.2,
-                                    }}
-                                />
-                                {/* Cross arm 2-1 — diagonal \ */}
-                                <div
-                                    style={{
-                                        position: 'absolute',
-                                        top: '50%',
-                                        left: '50%',
-                                        width: `${CROSS_ARM_LENGTH}px`,
-                                        height: '2px',
-                                        transform:
-                                            'translate(-40%, -40%) rotate(-45deg)',
-                                        background: `linear-gradient(90deg, transparent 0%, ${color} 45%, ${color} 55%, transparent 100%)`,
-                                        boxShadow: `0 0 ${CROSS_GLOW_BLUR}px 2px --color-mix(in srgb, ${color}, transparent 80%), 0 0 ${CROSS_GLOW_BLUR * 2}px 4px ${color}`,
-                                        opacity: 0.2,
-                                    }}
-                                />
-                                {/* Cross arm 2-2 — diagonal \ */}
-                                <div
-                                    style={{
-                                        position: 'absolute',
-                                        top: '50%',
-                                        left: '50%',
-                                        width: `${CROSS_ARM_LENGTH}px`,
-                                        height: '2px',
-                                        transform:
-                                            'translate(-60%, -60%) rotate(-45deg)',
-                                        background: `linear-gradient(90deg, transparent 0%, ${color} 45%, ${color} 55%, transparent 100%)`,
-                                        boxShadow: `0 0 ${CROSS_GLOW_BLUR}px 2px --color-mix(in srgb, ${color}, transparent 80%), 0 0 ${CROSS_GLOW_BLUR * 2}px 4px ${color}`,
-                                        opacity: 0.2,
-                                    }}
-                                />
-                                {/* Central core */}
-                                <div
-                                    style={{
-                                        position: 'relative',
-                                        width: '1px',
-                                        height: '1px',
-                                        borderRadius: '9999px',
-                                        backgroundColor: color,
-                                        opacity: 0.4,
-                                        boxShadow: `0 0 10px --color-mix(in srgb, ${color}, transparent 80%), 0 0 40px --color-mix(in srgb, ${color}, transparent 50%)`,
-                                    }}
-                                />
-                            </div>
-                        </div>
-                    );
-                })}
+                      return (
+                          <div
+                              key={star.id}
+                              className="absolute"
+                              style={{
+                                  left: star.left,
+                                  top: star.top,
+                                  width: `${star.size}px`,
+                                  height: `${star.size}px`,
+                                  // Center the large gradient
+                                  transform: 'translate(-50%, -50%)',
+                                  backgroundImage: `radial-gradient(circle, color-mix(in srgb, ${color}, transparent 80%) 0%, color-mix(in srgb, ${color}, transparent 95%) 1%, transparent 70%)`,
+                                  mixBlendMode: 'screen',
+                                  // Pass the drift values to CSS
+                                  ['--drift-x' as string]: star.driftX,
+                                  ['--drift-y' as string]: star.driftY,
+                                  animation: `star-twinkle ${star.twinkleDur} ease-in-out ${star.delay} infinite alternate, star-drift ${star.duration} ease-in-out ${star.delay} infinite alternate`,
+                              }}
+                          >
+                              <div
+                                  className="absolute top-1/2 left-1/2 h-[1.5px] w-[1.5px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40"
+                                  style={{
+                                      backgroundColor: color,
+                                      boxShadow: `0 0 20px  ${color}, 0 0 30px ${color}, 0 0 40px transparent`,
+                                  }}
+                              >
+                                  {/* Cross arm 1-1 — diagonal / */}
+                                  <div
+                                      style={{
+                                          position: 'absolute',
+                                          top: '50%',
+                                          left: '50%',
+                                          width: `${CROSS_ARM_LENGTH}px`,
+                                          height: '2px',
+                                          transform:
+                                              'translate(-40%, -40%) rotate(45deg)',
+                                          background: `linear-gradient(90deg, transparent 0%, ${color} 45%, ${color} 55%, transparent 100%)`,
+                                          boxShadow: `0 0 ${CROSS_GLOW_BLUR}px 2px --color-mix(in srgb, ${color}, transparent 80%), 0 0 ${CROSS_GLOW_BLUR * 2}px 4px ${color}`,
+                                          opacity: 0.2,
+                                      }}
+                                  />
+                                  {/* Cross arm 1-1 — diagonal / */}
+                                  <div
+                                      style={{
+                                          position: 'absolute',
+                                          top: '50%',
+                                          left: '50%',
+                                          width: `${CROSS_ARM_LENGTH}px`,
+                                          height: '2px',
+                                          transform:
+                                              'translate(-60%, -60%) rotate(45deg)',
+                                          background: `linear-gradient(90deg, transparent 0%, ${color} 45%, ${color} 55%, transparent 100%)`,
+                                          boxShadow: `0 0 ${CROSS_GLOW_BLUR}px 2px --color-mix(in srgb, ${color}, transparent 80%), 0 0 ${CROSS_GLOW_BLUR * 2}px 4px ${color}`,
+                                          opacity: 0.2,
+                                      }}
+                                  />
+                                  {/* Cross arm 2-1 — diagonal \ */}
+                                  <div
+                                      style={{
+                                          position: 'absolute',
+                                          top: '50%',
+                                          left: '50%',
+                                          width: `${CROSS_ARM_LENGTH}px`,
+                                          height: '2px',
+                                          transform:
+                                              'translate(-40%, -40%) rotate(-45deg)',
+                                          background: `linear-gradient(90deg, transparent 0%, ${color} 45%, ${color} 55%, transparent 100%)`,
+                                          boxShadow: `0 0 ${CROSS_GLOW_BLUR}px 2px --color-mix(in srgb, ${color}, transparent 80%), 0 0 ${CROSS_GLOW_BLUR * 2}px 4px ${color}`,
+                                          opacity: 0.2,
+                                      }}
+                                  />
+                                  {/* Cross arm 2-2 — diagonal \ */}
+                                  <div
+                                      style={{
+                                          position: 'absolute',
+                                          top: '50%',
+                                          left: '50%',
+                                          width: `${CROSS_ARM_LENGTH}px`,
+                                          height: '2px',
+                                          transform:
+                                              'translate(-60%, -60%) rotate(-45deg)',
+                                          background: `linear-gradient(90deg, transparent 0%, ${color} 45%, ${color} 55%, transparent 100%)`,
+                                          boxShadow: `0 0 ${CROSS_GLOW_BLUR}px 2px --color-mix(in srgb, ${color}, transparent 80%), 0 0 ${CROSS_GLOW_BLUR * 2}px 4px ${color}`,
+                                          opacity: 0.2,
+                                      }}
+                                  />
+                                  {/* Central core */}
+                                  <div
+                                      style={{
+                                          position: 'relative',
+                                          width: '1px',
+                                          height: '1px',
+                                          borderRadius: '9999px',
+                                          backgroundColor: color,
+                                          opacity: 0.4,
+                                          boxShadow: `0 0 10px --color-mix(in srgb, ${color}, transparent 80%), 0 0 40px --color-mix(in srgb, ${color}, transparent 50%)`,
+                                      }}
+                                  />
+                              </div>
+                          </div>
+                      );
+                  })
+                : null}
         </div>
     );
 };
