@@ -44,9 +44,19 @@ const STEPS: Array<STEP> = [
 
 type SureWorkflowMapProps = HTMLAttributes<HTMLDivElement> & {};
 
-const SureWorkflowMap: FC<SureWorkflowMapProps> = (): ReactElement => {
+const SureWorkflowMap: FC<SureWorkflowMapProps> = ({
+    className,
+    ...props
+}): ReactElement => {
     return (
-        <section className="mt-32 flex w-full flex-col items-center justify-center gap-8">
+        <section
+            id="how-it-works"
+            className={cn(
+                'mt-16 pt-16 flex w-full flex-col items-center justify-center gap-8',
+                className
+            )}
+            {...props}
+        >
             <div>
                 <SurePill text="A Journey" icon={Footprints} glow tint="mint" />
             </div>
@@ -72,8 +82,8 @@ const SureWorkflowMap: FC<SureWorkflowMapProps> = (): ReactElement => {
                 ever!
             </p>
             <div className={cn('flex flex-col gap-16', 'lg:flex-row')}>
-                <SureQuestPathArt className="flex-1" />
-                <div className="flex h-full grow flex-col gap-4">
+                <SureQuestPathArt className="flex-1 grow" />
+                <div className="flex h-full flex-1 grow flex-col gap-4">
                     {STEPS.map((step) => (
                         <SureStep
                             key={step.stepNumber}

@@ -38,14 +38,19 @@ const STATS: Array<STAT> = [
 
 type SureNumbers = HTMLAttributes<HTMLDivElement> & {};
 
-const SureNumbers: FC<SureNumbers> = (): ReactElement => {
+const SureNumbers: FC<SureNumbers> = ({
+    className,
+    ...props
+}): ReactElement => {
     return (
         <section
             className={cn(
-                'mt-48 grid grid-cols-1 items-center justify-between gap-8',
+                'mt-32 pt-16 grid grid-cols-1 items-center justify-between gap-8',
                 'md:grid-cols-2',
-                'lg:grid-cols-4'
+                'lg:grid-cols-4',
+                className
             )}
+            {...props}
         >
             {STATS.map((item, index) => {
                 const Icon = item.icon;

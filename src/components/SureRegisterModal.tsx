@@ -2,18 +2,19 @@
 
 import SureModal from '@/components/ui/SureModal';
 import { useRouter } from 'next/navigation';
-import { HTMLAttributes } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import SureRegisterForm from '@/components/auth/SureRegisterForm';
 
-type SureRegisterModalProps = HTMLAttributes<HTMLElement> & {
+type SureRegisterModalProps = HTMLAttributes<HTMLDivElement> & {
     isRegisterModalOpen: boolean;
     setIsRegisterModalOpen: (isOpen: boolean) => void;
 };
 
-const SureRegisterModal = ({
+const SureRegisterModal: FC<SureRegisterModalProps> = ({
     isRegisterModalOpen,
     setIsRegisterModalOpen,
-}: SureRegisterModalProps) => {
+    className,
+}) => {
     const router = useRouter();
 
     const handleRegisterSuccess = () => {
@@ -32,6 +33,7 @@ const SureRegisterModal = ({
             showConfirmButton={false}
             showCloseButton={false}
             title="Register"
+            className={className}
         >
             <SureRegisterForm onSuccess={handleRegisterSuccess} />
         </SureModal>

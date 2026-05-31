@@ -13,6 +13,7 @@ import {
 } from 'react';
 import SureBasicButton from '@/components/ui/SureBasicButton';
 import SureAvatar from '@/components/ui/SureAvatar';
+import { cn } from '@/lib/tailwind.utils';
 
 type SureUserMenuProps = HTMLAttributes<HTMLElement> & {
     user: UserType | null;
@@ -20,6 +21,8 @@ type SureUserMenuProps = HTMLAttributes<HTMLElement> & {
 
 const SureUserAvatarWithMenu: FC<SureUserMenuProps> = ({
     user,
+    className,
+    ...props
 }): ReactElement => {
     const router = useRouter();
 
@@ -46,7 +49,11 @@ const SureUserAvatarWithMenu: FC<SureUserMenuProps> = ({
     };
 
     return user ? (
-        <div ref={ref} className="relative inline-block">
+        <div
+            ref={ref}
+            className={cn('relative inline-block', className)}
+            {...props}
+        >
             <SureBasicButton
                 onClick={() => setOpen((o) => !o)}
                 className="focus:ring-accent rounded-full focus:ring-2 focus:outline-none"

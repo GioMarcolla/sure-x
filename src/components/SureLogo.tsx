@@ -10,13 +10,14 @@ type SureLogoProps = HTMLAttributes<HTMLDivElement> & {};
  * @param {string} [props.className] - Additional CSS classes to be applied to the container element.
  * @returns {ReactElement} - The rendered SurePlay logo component.
  */
-const SureLogo: FC<SureLogoProps> = ({ className }): ReactElement => {
+const SureLogo: FC<SureLogoProps> = ({ className, ...props }): ReactElement => {
     return (
         <div
             className={cn(
                 'flex h-fit w-fit flex-row items-center justify-center gap-1',
                 className
             )}
+            {...props}
         >
             <div
                 className="h-fit"

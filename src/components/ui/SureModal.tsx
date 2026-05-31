@@ -1,9 +1,16 @@
 'use client';
 
-import React, { FC, memo, ReactNode } from 'react';
+import React, {
+    FC,
+    HTMLAttributes,
+    memo,
+    ReactElement,
+    ReactNode,
+} from 'react';
 import SureBasicButton from './SureBasicButton';
+import { cn } from '@/lib/tailwind.utils';
 
-interface SureModalProps {
+type SureModalProps = HTMLAttributes<HTMLDivElement> & {
     isOpen: boolean;
     onClose: () => void;
     onConfirm?: () => void;
@@ -16,7 +23,7 @@ interface SureModalProps {
     size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
     closeOnOverlayClick?: boolean;
     preventScroll?: boolean;
-}
+};
 
 const sizeClasses = {
     sm: 'max-w-sm',
@@ -39,8 +46,11 @@ const SureModal: FC<SureModalProps> = memo(
         cancelText = 'Cancel',
         size = 'md',
         closeOnOverlayClick = true,
+
         preventScroll = true,
-    }) => {
+        className,
+        ...props
+    }): ReactElement => {
         // Handle escape key
         React.useEffect(() => {
             const handleEscape = (e: KeyboardEvent) => {
@@ -62,7 +72,7 @@ const SureModal: FC<SureModalProps> = memo(
             };
         }, [isOpen, onClose, preventScroll]);
 
-        if (!isOpen) return null;
+        if (!isOpen) return <></>;
 
         const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
             if (closeOnOverlayClick && e.target === e.currentTarget) {
@@ -72,10 +82,14 @@ const SureModal: FC<SureModalProps> = memo(
 
         return (
             <div
-                className="animate-in fade-in fixed inset-0 z-999 flex h-full w-full items-center justify-center bg-black/50 p-4 backdrop-blur duration-200 dark:bg-gray-950/70"
+                className={cn(
+                    'animate-in fade-in fixed inset-0 z-999 flex h-full w-full items-center justify-center bg-black/50 p-4 backdrop-blur duration-200 dark:bg-gray-950/70',
+                    className
+                )}
                 onClick={handleOverlayClick}
                 role="dialog"
                 aria-modal="true"
+                {...props}
             >
                 <div
                     className={`animate-in w-full ${sizeClasses[size]} zoom-in-95 relative flex transform flex-col gap-8 rounded-2xl bg-(--bg) p-8 shadow-lg duration-200`}

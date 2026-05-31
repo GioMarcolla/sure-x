@@ -10,6 +10,7 @@ type SureQuestPathArtProps = HTMLAttributes<HTMLDivElement> & {};
 
 const SureQuestPathArt: FC<SureQuestPathArtProps> = ({
     className,
+    ...props
 }): ReactElement => {
     const prefersReducedMotion = usePrefersReducedMotion();
     const isMobile = useIsMobile();
@@ -17,9 +18,10 @@ const SureQuestPathArt: FC<SureQuestPathArtProps> = ({
     return (
         <div
             className={cn(
-                'relative flex h-full min-h-80 w-full min-w-80 items-center justify-center overflow-hidden rounded-4xl border-2 border-(--border-color) backdrop-blur-lg',
+                'relative flex h-full min-h-90 w-full min-w-90 items-center justify-center overflow-hidden rounded-4xl border-2 border-(--border-color) backdrop-blur-lg',
                 className
             )}
+            {...props}
         >
             <div
                 className="absolute inset-6 rounded-3xl bg-linear-to-b from-(--accent)/12 via-transparent to-(--accent-contrast)/10 opacity-80"

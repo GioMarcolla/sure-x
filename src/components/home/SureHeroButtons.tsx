@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useUserStore } from '@/store/user.store';
 import SureLoginForm from '../auth/SureLoginForm';
 import SureRegisterForm from '../auth/SureRegisterForm';
+import Link from 'next/link';
 
 const SureHeroButtons = () => {
     const router = useRouter();
@@ -55,7 +56,12 @@ const SureHeroButtons = () => {
     return (
         <>
             <div className="relative flex flex-col items-center justify-center gap-4 sm:flex-row">
-                {!user?.email && (
+                <Link href="#sign-up">
+                    <SureButton className="h-full">
+                        Sing up for the latest news!
+                    </SureButton>
+                </Link>
+                {/* {!user?.email && (
                     <SureButton onClick={handlePrimaryClick} className="h-full">
                         Start a new quest
                     </SureButton>
@@ -67,7 +73,7 @@ const SureHeroButtons = () => {
                 >
                     {!user?.username ? 'Login to c' : 'C'}ontinue your adventure{' '}
                     {user?.username ? `(${user.username})` : ''}
-                </SureButton>
+                </SureButton> */}
             </div>
             <SureModal
                 isOpen={isLoginModalOpen}

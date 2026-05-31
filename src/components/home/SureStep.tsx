@@ -16,13 +16,17 @@ const SureStep: FC<SureStepProps> = ({
     description,
     icon: Icon,
     stepNumber,
+    className,
+    ...props
 }): ReactElement => {
     return (
         <div
             className={cn(
                 'flex flex-row gap-5 rounded-4xl border-2 border-(--border-color) p-5 backdrop-blur-lg',
-                'sm:gap-6 sm:p-6'
+                'sm:gap-6 sm:p-6',
+                className
             )}
+            {...props}
         >
             {Icon && (
                 <div

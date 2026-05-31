@@ -7,14 +7,16 @@ import { cn } from '@/lib/tailwind.utils';
 
 type SureHeroProps = HTMLAttributes<HTMLDivElement> & {};
 
-const SureHero: FC<SureHeroProps> = (): ReactElement => {
+const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
     return (
         <section
             id="hero"
             className={cn(
-                'mt-32 flex w-full flex-col items-center gap-16',
-                'lg:flex-row'
+                'mt-16 pt-16 flex w-full flex-col items-center gap-16',
+                'lg:flex-row',
+                className
             )}
+            {...props}
         >
             <div className="flex flex-1 grow flex-col gap-8 px-4">
                 <div

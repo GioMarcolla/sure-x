@@ -20,11 +20,11 @@ const MENU_ITENS: Array<MENU_ITEM> = [
     },
     {
         label: 'How it works',
-        href: '/#how',
+        href: '/#how-it-works',
     },
     {
-        label: 'Pricing',
-        href: '/#pricing',
+        label: 'Features',
+        href: '/#features',
     },
     {
         label: 'Team',
@@ -34,7 +34,10 @@ const MENU_ITENS: Array<MENU_ITEM> = [
 
 type SureNavbarProps = HTMLAttributes<HTMLDivElement> & {};
 
-const SureNavbar: FC<SureNavbarProps> = (): ReactElement => {
+const SureNavbar: FC<SureNavbarProps> = ({
+    className,
+    ...props
+}): ReactElement => {
     const [collapsed, setCollapsed] = useState<boolean>(true);
 
     useEffect(() => {
@@ -54,8 +57,10 @@ const SureNavbar: FC<SureNavbarProps> = (): ReactElement => {
         <nav
             className={cn(
                 'my-4 flex w-full flex-col items-center justify-center gap-4 p-0 text-sm font-semibold',
-                'md:flex-row md:gap-8 md:text-base'
+                'md:flex-row md:gap-8 md:text-base',
+                className
             )}
+            {...props}
         >
             <div
                 className={cn(

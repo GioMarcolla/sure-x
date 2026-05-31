@@ -59,7 +59,10 @@ const HUE_CORES: Record<StarHue, string> = {
 
 type SureStarfieldProps = HTMLAttributes<HTMLElement> & {};
 
-const SureStarfield: FC<SureStarfieldProps> = ({ className }): ReactElement => {
+const SureStarfield: FC<SureStarfieldProps> = ({
+    className,
+    ...props
+}): ReactElement => {
     const prefersReducedMotion = usePrefersReducedMotion();
     const isMobile = useIsMobile();
 
@@ -70,6 +73,7 @@ const SureStarfield: FC<SureStarfieldProps> = ({ className }): ReactElement => {
                 className
             )}
             aria-hidden
+            {...props}
         >
             <div
                 className="absolute inset-0 opacity-30 transition-opacity duration-1000 dark:opacity-50"

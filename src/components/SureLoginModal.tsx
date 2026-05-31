@@ -3,17 +3,18 @@
 import SureLoginForm from '@/components/auth/SureLoginForm';
 import SureModal from '@/components/ui/SureModal';
 import { useRouter } from 'next/navigation';
-import { HTMLAttributes } from 'react';
+import { FC, HTMLAttributes } from 'react';
 
-type SureLoginModalProps = HTMLAttributes<HTMLElement> & {
+type SureLoginModalProps = HTMLAttributes<HTMLDivElement> & {
     isLoginModalOpen: boolean;
     setIsLoginModalOpen: (isOpen: boolean) => void;
 };
 
-const SureLoginModal = ({
+const SureLoginModal: FC<SureLoginModalProps> = ({
     isLoginModalOpen,
     setIsLoginModalOpen,
-}: SureLoginModalProps) => {
+    className,
+}) => {
     const router = useRouter();
 
     const handleLoginSuccess = () => {
@@ -32,6 +33,7 @@ const SureLoginModal = ({
             showConfirmButton={false}
             showCloseButton={false}
             title="Login"
+            className={className}
         >
             <SureLoginForm onSuccess={handleLoginSuccess} />
         </SureModal>

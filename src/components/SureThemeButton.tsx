@@ -33,7 +33,7 @@ const MoonIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
 
 type SureThemeButtonProps = HTMLAttributes<HTMLButtonElement> & {};
 
-const SureThemeButton: FC<SureThemeButtonProps> = ({ className }) => {
+const SureThemeButton: FC<SureThemeButtonProps> = ({ className, ...props }) => {
     const [isDark, setIsDark] = useState(false);
 
     useEffect(() => {
@@ -62,6 +62,7 @@ const SureThemeButton: FC<SureThemeButtonProps> = ({ className }) => {
                 className
             )}
             title={isDark ? 'Light mode' : 'Dark mode'}
+            {...props}
         >
             <span className="sr-only">Toggle theme</span>
             {isDark ? (

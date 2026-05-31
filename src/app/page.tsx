@@ -4,6 +4,8 @@ import SureHeader from '@/components/SureHeader';
 import SureStarfield from '@/components/SureStarfield';
 import SureWorkflowMap from '@/components/home/SureWorkflowMap';
 import { FC, HTMLAttributes, ReactElement } from 'react';
+import SureFeatures from '@/components/home/SureFeatures';
+import SureNewsSignUp from '@/components/SureNewsSignUp';
 
 type HomeProps = HTMLAttributes<HTMLDivElement> & {};
 
@@ -15,6 +17,8 @@ const Home: FC<HomeProps> = (): ReactElement => {
                 <SureHero />
                 <SureNumbers />
                 <SureWorkflowMap />
+                <SureFeatures />
+                <SureNewsSignUp />
             </main>
             <footer></footer>
 

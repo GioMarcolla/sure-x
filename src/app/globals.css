@@ -112,6 +112,7 @@ html.dark {
 
 html,
 body {
+    scroll-behavior: smooth;
     background: var(--bg);
     color: var(--ink);
     background-image:
