@@ -21,7 +21,8 @@ const SureLoadingCard: FC<SureLoadingCardProps> = ({
     return (
         <div
             className={cn(
-                'relative flex flex-col gap-4 rounded-4xl border-2 border-(--border-color) p-6 backdrop-blur-lg',
+                'relative flex flex-col gap-4 rounded-4xl border-2 border-(--border-color) p-6 backdrop-blur-lg transition-all duration-300 ease-in-out',
+                'hover:-translate-y-1 hover:shadow-[0_0_50px_color-mix(in_srgb,var(--accent-contrast)_40%,transparent)]',
                 className
             )}
             {...props}

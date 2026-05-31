@@ -89,12 +89,13 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
                         {status === 'loading' ? '...' : 'Sign Up NOW!'}
                     </button>
                 </form>
+
                 {status !== 'idle' && status !== 'loading' && (
                     <p
                         className={cn(
-                            'text-sm',
+                            'text-lg font-medium',
                             status === 'success'
-                                ? 'text-(--accent-min)'
+                                ? 'text-(--accent-mint)'
                                 : 'text-(--error)'
                         )}
                     >

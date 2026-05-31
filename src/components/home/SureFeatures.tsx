@@ -13,39 +13,37 @@ import {
 import { cn } from '@/lib/tailwind.utils';
 import SureLoadingCard from '../ui/SureLoadingCards';
 
-type CAPABILITY = {
+type FEATURE = {
     title: string;
     description: string;
     icon: LucideIcon;
     level: number; // 0-100
 };
 
-const CAPABILITIES: Array<CAPABILITY> = [
+const FEATURES: Array<FEATURE> = [
     {
         title: 'Adaptive learning',
         description:
-            'Neural suggestions that get sharper as you log outcomes—especially the messy ones.',
+            'Suggestions adapt to your choices, your context, and your goals.',
         icon: BrainIcon,
         level: 86,
     },
     {
         title: 'Non-linear mapping',
         description:
-            'Branch, backtrack, and remix routes without losing the thread of where you started.',
+            'Branch and backtrack without losing the thread of where you started.',
         icon: GitBranchIcon,
         level: 92,
     },
     {
         title: 'Mix & refine',
-        description:
-            'Retries are fuel. The map learns what to nudge next time a similar fork appears.',
+        description: 'Change directions by throwing more context into the mix.',
         icon: TrendingUpIcon,
         level: 78,
     },
     {
         title: 'Node intelligence',
-        description:
-            'Each node carries its own mini-model of context so the whole web feels coherent.',
+        description: 'Each node know you, your context, and your preferences.',
         icon: NetworkIcon,
         level: 81,
     },
@@ -75,7 +73,7 @@ const SureFeatures: FC<SureFeaturesProps> = ({
         <section
             id="features"
             className={cn(
-                'mt-16 pt-16 flex flex-col items-center justify-center gap-8',
+                'mt-16 flex flex-col items-center justify-center gap-8 pt-16',
                 className
             )}
             {...props}
@@ -85,12 +83,13 @@ const SureFeatures: FC<SureFeaturesProps> = ({
                 Intelligence that evolves
             </h2>
             <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {CAPABILITIES.map((c, i) => (
+                {FEATURES.map((feature, index) => (
                     <SureLoadingCard
-                        title={c.title}
-                        description={c.description}
-                        icon={c.icon}
-                        level={c.level}
+                        key={'feature-' + index}
+                        title={feature.title}
+                        description={feature.description}
+                        icon={feature.icon}
+                        level={feature.level}
                     />
                 ))}
             </div>
