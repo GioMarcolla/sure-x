@@ -53,10 +53,10 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
             {...props}
         >
             <div className="flex flex-col items-center gap-8 rounded-4xl border-2 border-(--border-color) p-16 backdrop-blur-lg">
-                <h2 className="text-7xl font-black italic">
+                <h2 className="4xl sm:5xl font-black italic md:text-7xl">
                     Sign up for the latest news!
                 </h2>
-                <p className="mt-2 text-lg text-(--ink-muted)">
+                <p className="mt-2 text-base text-(--ink-muted) md:text-lg">
                     Be the first to know about our launch, updates, and
                     exclusive content. Join our community of adventurers today!
                 </p>
