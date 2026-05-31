@@ -54,10 +54,10 @@ const SureQuestPathArt: FC<SureQuestPathArtProps> = ({
                     />
                 )}
             </svg>
-            <div className="pointer-events-none absolute top-[10px] left-[calc(50%-165px)] z-2 flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-(--border-color) bg-(--accent-warm) object-center text-(--ink) shadow-lg">
+            <div className="pointer-events-none absolute top-2.5 left-[calc(50%-165px)] z-2 flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-(--border-color) bg-(--accent-warm) object-center text-(--ink) shadow-lg">
                 <MapPin className="h-6 w-6" aria-hidden />
             </div>
-            <div className="pointer-events-none absolute bottom-[10px] left-1/2 z-2 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-2xl border-2 border-(--border-color) bg-(--accent-contrast) text-(--ink) shadow-lg">
+            <div className="pointer-events-none absolute bottom-2.5 left-1/2 z-2 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-2xl border-2 border-(--border-color) bg-(--accent-contrast) text-(--ink) shadow-lg">
                 <PartyPopper className="h-7 w-7" aria-hidden />
             </div>
         </div>
