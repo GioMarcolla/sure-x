@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes, ReactElement } from 'react';
-import SurePill from '../SurePill';
+import SurePill from '@/components/SurePill';
 import {
     BrainIcon,
     CpuIcon,
