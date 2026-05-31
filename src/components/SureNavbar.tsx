@@ -26,7 +26,7 @@ const MENU_ITENS: Array<MENU_ITEM> = [
         label: 'Team',
         href: '/#team',
     },
-];
+] as const;
 
 type SureNavbarProps = HTMLAttributes<HTMLDivElement> & {};
 

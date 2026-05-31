@@ -9,7 +9,7 @@ type SureHeroProps = HTMLAttributes<HTMLDivElement> & {};
 
 const SureHero: FC<SureHeroProps> = (): ReactElement => {
     return (
-        <div
+        <section
             className={cn(
                 'mt-32 flex w-full flex-col items-center gap-16',
                 'lg:flex-row'
@@ -62,7 +62,7 @@ const SureHero: FC<SureHeroProps> = (): ReactElement => {
                     )}
                 />
             </div>
-        </div>
+        </section>
     );
 };
 

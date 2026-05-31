@@ -1,4 +1,5 @@
 import SureHero from '@/components/home/SureHero';
+import SureNumbers from '@/components/home/SureNumbers';
 import SureHeader from '@/components/SureHeader';
 import SureStarfield from '@/components/SureStarfield';
 import { FC, HTMLAttributes, ReactElement } from 'react';
@@ -11,6 +12,7 @@ const Home: FC<HomeProps> = (): ReactElement => {
             <SureHeader />
             <main className="px-[5%]">
                 <SureHero />
+                <SureNumbers />
             </main>
             <footer></footer>
 
