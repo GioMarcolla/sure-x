@@ -1,6 +1,6 @@
-import { FC, ButtonHTMLAttributes, ReactElement } from 'react';
+import { FC, HTMLAttributes, ReactElement } from 'react';
 
-type SureBasicButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {};
+type SureBasicButtonProps = HTMLAttributes<HTMLButtonElement> & {};
 
 const SureBasicButton: FC<SureBasicButtonProps> = (props): ReactElement => {
     return <button {...props}>{props.children}</button>;

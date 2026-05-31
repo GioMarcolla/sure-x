@@ -25,7 +25,7 @@ const SureLogo: FC<SureLogoProps> = ({ className }): ReactElement => {
                 <Image
                     src="/images/SURE_LOGO.jpeg"
                     alt="SurePlay Logo"
-                    className="h-8 w-8"
+                    className="aspect-square h-8 min-h-8 w-8 min-w-8 object-contain"
                     loading="eager"
                     fetchPriority="high" // Above the folde
                     aria-description="SurePlay Logo"

@@ -154,6 +154,14 @@ html.dark {
     }
 }
 
+.font-space-grotesk {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.font-fraunces {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+}
+
 html,
 body {
     background: var(--bg);
@@ -167,4 +175,6 @@ body {
     transition: all 0.3s ease-in-out;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    font-family: 'Space Grotesk', system-ui, sans-serif;
 }

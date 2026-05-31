@@ -1,12 +1,13 @@
 import { cn } from '@/lib/tailwind.utils';
+import { LucideIcon } from 'lucide-react';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 
 const TINT_MAP: Record<string, string> = {
-    primary: 'bg-(--accent)/30 border-(--accent)/10',
-    strong: 'bg-(--accent-strong)/30 border-(--accent-strong)/10',
-    warm: 'bg-(--accent-warm)/30 border-(--accent-warm)/10',
-    mint: 'bg-(--accent-mint)/30 border-(--accent-mint)/10',
-    contrast: 'bg-(--accent-contrast)/30 border-(--accent-contrast)/10',
+    primary: 'bg-(--accent)/30 border-(--accent)/5',
+    strong: 'bg-(--accent-strong)/30 border-(--accent-strong)/5',
+    warm: 'bg-(--accent-warm)/30 border-(--accent-warm)/5',
+    mint: 'bg-(--accent-mint)/30 border-(--accent-mint)/5',
+    contrast: 'bg-(--accent-contrast)/30 border-(--accent-contrast)/5',
 };
 
 const GLOW_MAP: Record<string, string> = {
@@ -24,13 +25,13 @@ type SurePillProps = HTMLAttributes<HTMLSpanElement> & {
     text: string;
     tint?: 'primary' | 'strong' | 'warm' | 'mint' | 'contrast';
     glow?: boolean;
-    icon?: ReactElement;
+    icon?: LucideIcon;
 };
 
 const SurePill: FC<SurePillProps> = ({
     className,
     text,
-    icon,
+    icon: Icon,
     glow = false,
     tint = 'primary',
     ...props
@@ -38,7 +39,7 @@ const SurePill: FC<SurePillProps> = ({
     return (
         <span
             className={cn(
-                'flex flex-row justify-between rounded-full border-2 px-4 py-1 backdrop-blur-sm backdrop-opacity-10',
+                'flex flex-row align-middle items-center gap-2 justify-between rounded-full border-2 px-4 py-2 backdrop-blur-sm backdrop-opacity-10',
                 TINT_MAP[tint],
                 className
             )}
@@ -49,7 +50,7 @@ const SurePill: FC<SurePillProps> = ({
             }}
             {...props}
         >
-            {icon && icon}
+            {Icon && <Icon className="w-4 h-4" />}
             <span className="text-sm font-medium">{text}</span>
         </span>
     );

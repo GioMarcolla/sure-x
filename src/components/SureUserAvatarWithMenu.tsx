@@ -12,7 +12,7 @@ import {
     useState,
 } from 'react';
 import SureBasicButton from '@/components/ui/SureBasicButton';
-import SureAvatar from './ui/SureAvatar';
+import SureAvatar from '@/components/ui/SureAvatar';
 
 type SureUserMenuProps = HTMLAttributes<HTMLElement> & {
     user: UserType | null;
@@ -48,7 +48,6 @@ const SureUserAvatarWithMenu: FC<SureUserMenuProps> = ({
     return user ? (
         <div ref={ref} className="relative inline-block">
             <SureBasicButton
-                type="button"
                 onClick={() => setOpen((o) => !o)}
                 className="focus:ring-accent rounded-full focus:ring-2 focus:outline-none"
                 aria-haspopup="menu"
