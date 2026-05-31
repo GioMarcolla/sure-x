@@ -10,6 +10,7 @@ html:not(.dark) {
     --border-color-strong: #dce7f1;
     --ink: #0f172a;
     --ink-muted: #64748b;
+    --ink-inverted: #ebedef;
 
     --accent: #6366f1;
     --accent-strong: #4f46e5;
@@ -62,6 +63,8 @@ html.dark {
     --border-color-strong: #1a1c25;
     --ink: #f8fafc;
     --ink-muted: #94a3b8;
+    --ink-inverted: #121212;
+
 
     --accent: #8b5cf6;
     --accent-strong: #7c3aed;

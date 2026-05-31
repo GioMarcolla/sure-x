@@ -6,12 +6,15 @@ import SureWorkflowMap from '@/components/home/SureWorkflowMap';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 import SureFeatures from '@/components/home/SureFeatures';
 import SureNewsSignUp from '@/components/SureNewsSignUp';
+import SureFooter from '@/components/SureFooter';
 
 type HomeProps = HTMLAttributes<HTMLDivElement> & {};
 
 const Home: FC<HomeProps> = (): ReactElement => {
     return (
         <>
+            <SureStarfield />
+
             <SureHeader />
             <main className="px-[5%]">
                 <SureHero />
@@ -20,9 +23,7 @@ const Home: FC<HomeProps> = (): ReactElement => {
                 <SureFeatures />
                 <SureNewsSignUp />
             </main>
-            <footer></footer>
-
-            <SureStarfield />
+            <SureFooter />
         </>
     );
 };
