@@ -10,19 +10,19 @@ type STAT = {
 
 const STATS: Array<STAT> = [
     {
-        stat: '1M+',
+        stat: '10K+',
         label: 'Missions accomplished',
         icon: Trophy,
         tone: 'var(--bg-lg-yellow)',
     },
     {
-        stat: '2.5×',
+        stat: '2.3×',
         label: 'Skill boost on focus weeks',
         icon: Trophy,
         tone: 'var(--bg-lg-red)',
     },
     {
-        stat: '90%+',
+        stat: '87%+',
         label: 'Win rate on committed paths',
         icon: Medal,
         tone: 'var(--bg-lg-teal)',

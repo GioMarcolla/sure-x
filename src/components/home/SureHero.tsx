@@ -51,10 +51,10 @@ const SureHero: FC<SureHeroProps> = (): ReactElement => {
                 }}
             >
                 <Image
-                    src="/images/hero-hazemap-landing.png"
+                    src="/images/hero_img_02.jpg"
                     alt="Colorful isometric decision map worlds in light and dark moods"
-                    width={900}
-                    height={900}
+                    width={2048}
+                    height={1136}
                     priority
                     className={cn(
                         'aspect-square h-full w-full object-cover',
