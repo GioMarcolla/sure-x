@@ -17,7 +17,12 @@ const SureHero: FC<SureHeroProps> = (): ReactElement => {
             )}
         >
             <div className="flex flex-1 grow flex-col gap-8 px-4">
-                <div className="flex w-full flex-row justify-center gap-4">
+                <div
+                    className={cn(
+                        'flex w-full flex-col justify-center gap-4',
+                        'xs:flex-row'
+                    )}
+                >
                     <SurePill text="SurePlay AI!" glow icon={Sparkles} />
                     <SurePill
                         text="Decision Mapping"

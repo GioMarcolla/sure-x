@@ -17,7 +17,7 @@ const SureQuestPathArt: FC<SureQuestPathArtProps> = ({
     return (
         <div
             className={cn(
-                'relative flex h-full min-h-100 w-full min-w-100 items-center justify-center overflow-hidden rounded-4xl border-2 border-(--border-color) backdrop-blur-lg',
+                'relative flex h-full min-h-80 w-full min-w-80 items-center justify-center overflow-hidden rounded-4xl border-2 border-(--border-color) backdrop-blur-lg',
                 className
             )}
         >
