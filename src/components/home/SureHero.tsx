@@ -10,6 +10,7 @@ type SureHeroProps = HTMLAttributes<HTMLDivElement> & {};
 const SureHero: FC<SureHeroProps> = (): ReactElement => {
     return (
         <section
+            id="hero"
             className={cn(
                 'mt-32 flex w-full flex-col items-center gap-16',
                 'lg:flex-row'
@@ -26,13 +27,21 @@ const SureHero: FC<SureHeroProps> = (): ReactElement => {
                     />
                 </div>
                 <div className="text-center">
-                    <h1 className="text-7xl font-black">
-                        <div className="text-6xl font-black">
+                    <h1 className="font-black">
+                        <span
+                            className={cn('text-5xl font-black', 'md:text-6xl')}
+                        >
                             It's Time to Level Up
-                        </div>
-                        <div className="font-fraunces text-(--accent) italic">
+                        </span>
+                        <br />
+                        <span
+                            className={cn(
+                                'font-fraunces text-7xl text-(--accent) italic',
+                                'md:text-8xl'
+                            )}
+                        >
                             Your Life Path
-                        </div>
+                        </span>
                     </h1>
                     <p className="mt-4 text-lg text-(--ink-muted) sm:text-xl md:text-2xl">
                         A living decision map that branches with you—playful,

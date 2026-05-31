@@ -15,8 +15,12 @@ type MENU_ITEM = {
 
 const MENU_ITENS: Array<MENU_ITEM> = [
     {
-        label: 'Features',
-        href: '/#features',
+        label: 'Home',
+        href: '/#home',
+    },
+    {
+        label: 'How it works',
+        href: '/#how',
     },
     {
         label: 'Pricing',

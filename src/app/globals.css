@@ -178,3 +178,14 @@ body {
 
     font-family: 'Space Grotesk', system-ui, sans-serif;
 }
+
+.quest-path-line {
+    stroke-dasharray: 8 10;
+    animation: path-dash 14s linear infinite;
+}
+
+@keyframes path-dash {
+    to {
+        stroke-dashoffset: -220;
+    }
+}

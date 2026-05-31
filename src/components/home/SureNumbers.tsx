@@ -1,3 +1,4 @@
+import { cn } from '@/lib/tailwind.utils';
 import { InfinityIcon, LucideIcon, Medal, Trophy } from 'lucide-react';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 
@@ -39,7 +40,13 @@ type SureNumbers = HTMLAttributes<HTMLDivElement> & {};
 
 const SureNumbers: FC<SureNumbers> = (): ReactElement => {
     return (
-        <section className="mt-48 flex flex-row items-center justify-between gap-8">
+        <section
+            className={cn(
+                'mt-48 grid grid-cols-1 items-center justify-between gap-8',
+                'md:grid-cols-2',
+                'lg:grid-cols-4'
+            )}
+        >
             {STATS.map((item, index) => {
                 const Icon = item.icon;
                 return (
