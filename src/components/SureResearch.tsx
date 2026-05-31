@@ -11,15 +11,15 @@ const SureResearch: FC<SureResearchProps> = ({
         <section
             id="research"
             className={cn(
-                'mt-16 flex flex-col items-center gap-6 pt-16',
+                'mt-16 flex flex-col items-center gap-8 pt-16 px-32',
                 className
             )}
             {...props}
         >
-            <h2 className="text-5xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            <h2 className="w-full text-center text-5xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                 Research & development
             </h2>
-            <p className="max-w-2xl text-center text-lg text-(--ink-muted)">
+            <p className="w-full text-center text-lg text-(--ink-muted)">
                 SurePlay builds solutions to address the challenges of VUCA. Our
                 team of researchers and developers are working tirelessly to
                 bring the future of decision-making to life. By breaking down

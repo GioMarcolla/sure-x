@@ -21,7 +21,7 @@ const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
             <div className="flex flex-1 grow flex-col gap-8 px-4">
                 <div
                     className={cn(
-                        'flex flex-col justify-center gap-4',
+                        'flex flex-col justify-center gap-4 mx-auto',
                         'sm:flex-row'
                     )}
                 >
