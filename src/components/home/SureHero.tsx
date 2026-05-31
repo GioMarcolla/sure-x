@@ -3,13 +3,19 @@ import SurePill from '@/components/SurePill';
 import Image from 'next/image';
 import { Map, Sparkles } from 'lucide-react';
 import SureHeroButtons from '@/components/home/SureHeroButtons';
+import { cn } from '@/lib/tailwind.utils';
 
 type SureHeroProps = HTMLAttributes<HTMLDivElement> & {};
 
 const SureHero: FC<SureHeroProps> = (): ReactElement => {
     return (
-        <div className="mt-32 flex w-full flex-row items-center gap-16">
-            <div className="flex flex-1 flex-col gap-8 px-4">
+        <div
+            className={cn(
+                'mt-32 flex w-full flex-col items-center gap-16',
+                'lg:flex-row'
+            )}
+        >
+            <div className="flex flex-1 grow flex-col gap-8 px-4">
                 <div className="flex w-full flex-row justify-center gap-4">
                     <SurePill text="SurePlay AI!" glow icon={Sparkles} />
                     <SurePill
@@ -38,9 +44,8 @@ const SureHero: FC<SureHeroProps> = (): ReactElement => {
                     <SureHeroButtons />
                 </div>
             </div>
-            {/* <div className="h-[-webkit-fill-available] min-h-full w-0.5 bg-(--border-color)"></div> */}
             <div
-                className="flex-1 overflow-hidden rounded-4xl border-2 border-(--border-color)"
+                className="flex-1 grow overflow-hidden rounded-4xl border-2 border-(--border-color) w-full"
                 style={{
                     boxShadow: '0 0 60px 5px var(--border-color)',
                 }}
