@@ -19,16 +19,16 @@ const MENU_ITENS: Array<MENU_ITEM> = [
         href: '/#home',
     },
     {
+        label: 'Research',
+        href: '/#research',
+    },
+    {
         label: 'How it works',
         href: '/#how-it-works',
     },
     {
         label: 'Features',
         href: '/#features',
-    },
-    {
-        label: 'Team',
-        href: '/#team',
     },
 ] as const;
 

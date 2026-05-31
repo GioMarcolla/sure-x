@@ -42,8 +42,8 @@ const FEATURES: Array<FEATURE> = [
         level: 78,
     },
     {
-        title: 'Node intelligence',
-        description: 'Each node know you, your context, and your preferences.',
+        title: 'Real-life Awerness',
+        description: 'Introduce real-life resources to create meaningful outcomes.',
         icon: NetworkIcon,
         level: 81,
     },

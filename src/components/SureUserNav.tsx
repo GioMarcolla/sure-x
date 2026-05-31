@@ -46,7 +46,7 @@ const SureUserNav: FC<SureUserNavProps> = ({
                     {...props}
                 >
                     <Link href="#sign-up" className="link hover:brightness-110 hover:text-shadow-[0_0_20px_color-mix(in_srgb,var(--accent-warm)_50%,transparent_50%)]">
-                        <span className="font-fraunces text-xl font-bold text-(--accent-warm) italic">
+                        <span className="font-fraunces text-base md:text-xl font-bold text-(--accent-warm) italic">
                             Sing up for the latest news!
                         </span>
                     </Link>
