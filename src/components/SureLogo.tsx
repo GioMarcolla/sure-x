@@ -19,10 +19,7 @@ const SureLogo: FC<SureLogoProps> = ({ className, ...props }): ReactElement => {
             )}
             {...props}
         >
-            <div
-                className="h-fit"
-                style={{ boxShadow: '0 0 30px var(--accent)' }}
-            >
+            <div className="h-fit">
                 <Image
                     src="/images/SURE_LOGO.jpeg"
                     alt="SurePlay Logo"
@@ -37,30 +34,10 @@ const SureLogo: FC<SureLogoProps> = ({ className, ...props }): ReactElement => {
             </div>
             <h1 className="space_grotesk flex items-center p-0 text-lg/3.5 font-black">
                 <div className="flex flex-col">
-                    <span
-                        style={{
-                            textShadow: '0 0 10px var(--accent-contrast)',
-                        }}
-                    >
-                        Sure
-                    </span>
-                    <span
-                        style={{
-                            textShadow: '0 0 10px var(--accent-contrast)',
-                        }}
-                    >
-                        Play
-                    </span>
+                    <span>Sure</span>
+                    <span>Play</span>
                 </div>
-                <span
-                    className="text-4xl text-(--accent)"
-                    style={{
-                        color: 'var(--accent)',
-                        textShadow: '0 0 30px var(--accent)',
-                    }}
-                >
-                    !
-                </span>
+                <span className="text-4xl text-(--ink)">!</span>
             </h1>
         </div>
     );
