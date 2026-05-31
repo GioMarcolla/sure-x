@@ -45,7 +45,7 @@ const SureHero: FC<SureHeroProps> = (): ReactElement => {
                 </div>
             </div>
             <div
-                className="flex-1 grow overflow-hidden rounded-4xl border-2 border-(--border-color) w-full"
+                className="w-full flex-1 grow overflow-hidden rounded-4xl border-2 border-(--border-color)"
                 style={{
                     boxShadow: '0 0 60px 5px var(--border-color)',
                 }}
@@ -56,7 +56,10 @@ const SureHero: FC<SureHeroProps> = (): ReactElement => {
                     width={900}
                     height={900}
                     priority
-                    className="aspect-video h-full w-full object-cover"
+                    className={cn(
+                        'aspect-square h-full w-full object-cover',
+                        'md:aspect-video'
+                    )}
                 />
             </div>
         </div>
