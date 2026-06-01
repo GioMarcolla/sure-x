@@ -7,7 +7,7 @@ import { FC, HTMLAttributes, ReactElement } from 'react';
 import SureFeatures from '@/components/home/SureFeatures';
 import SureNewsSignUp from '@/components/SureNewsSignUp';
 import SureFooter from '@/components/SureFooter';
-import SureResearch from '@/components/SureResearch';
+import SureResearch from '@/components/home/SureResearch';
 
 type HomeProps = HTMLAttributes<HTMLDivElement> & {};
 

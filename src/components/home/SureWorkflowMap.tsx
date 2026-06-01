@@ -78,8 +78,7 @@ const SureWorkflowMap: FC<SureWorkflowMapProps> = ({
             </h2>
             <p className="text-lg text-(--ink-muted) sm:text-xl">
                 Every choice you make evolves in a playful, adaptive adventure
-                that delivers insights and results faster and better than you
-                ever!
+                that delivers insights and results faster and better than ever!
             </p>
             <div className={cn('flex flex-col gap-16', 'lg:flex-row')}>
                 <SureQuestPathArt className="flex-1 grow" />

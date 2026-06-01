@@ -1,5 +1,7 @@
 import { cn } from '@/lib/tailwind.utils';
+import { ArrowRight } from 'lucide-react';
 import { FC, HTMLAttributes, ReactElement } from 'react';
+import SureVuca from '@/components/home/SureVuca';
 
 type SureResearchProps = HTMLAttributes<HTMLElement> & {};
 
@@ -27,6 +29,7 @@ const SureResearch: FC<SureResearchProps> = ({
                 and organizations to navigate uncertainty with confidence and
                 agility.
             </p>
+            <SureVuca />
         </section>
     );
 };

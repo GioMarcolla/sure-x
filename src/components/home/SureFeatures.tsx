@@ -22,9 +22,9 @@ type FEATURE = {
 
 const FEATURES: Array<FEATURE> = [
     {
-        title: 'Adaptive learning',
+        title: 'Life Awareness',
         description:
-            'Suggestions adapt to your choices, your context, and your goals.',
+            'Suggestions adapt to your previous choices, your life, and your goals.',
         icon: BrainIcon,
         level: 86,
     },
@@ -43,21 +43,22 @@ const FEATURES: Array<FEATURE> = [
     },
     {
         title: 'Real-life Awerness',
-        description: 'Introduce real-life resources to create meaningful outcomes.',
+        description:
+            'Introduce real-life resources to create meaningful outcomes.',
         icon: NetworkIcon,
         level: 81,
     },
     {
-        title: 'Contextual memory',
+        title: 'Lifetime Memory',
         description:
-            'Your goals, constraints, and language stick around—without turning into a boring CRM.',
+            'Your goals, constraints, and preferences stick around and modl future suggestions.',
         icon: LayersIcon,
         level: 88,
     },
     {
-        title: 'Precision guidance',
+        title: 'Struggles Awareness',
         description:
-            'Hints stay short and human: just enough direction to unblock the next real-world step.',
+            'Suggestions are aware of your struggles and adapt to help you overcome them.',
         icon: TargetIcon,
         level: 90,
     },
@@ -82,6 +83,24 @@ const SureFeatures: FC<SureFeaturesProps> = ({
             <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
                 Intelligence that evolves
             </h2>
+            <div className="max-w-2/3">
+                <p className="text-muted-foreground text-center text-lg">
+                    Our AI adapts to your unique way of thinking and working.
+                    Making decision that are relevant to{' '}
+                    <span className="font-fraunces text-2xl font-black text-(--accent-mint) italic">
+                        you
+                    </span>{' '}
+                    and that align with your goals, constraints, and
+                    preferences. The more you use it, the smarter it gets.
+                </p>
+                <p className="text-muted-foreground text-center text-lg">
+                    It learns from{' '}
+                    <span className="font-fraunces text-2xl font-black text-(--accent-mint) italic">
+                        your choices, your feedback, and your outcomes
+                    </span>{' '}
+                    to provide better suggestions over time.
+                </p>
+            </div>
             <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
                 {FEATURES.map((feature, index) => (
                     <SureLoadingCard

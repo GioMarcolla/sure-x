@@ -65,7 +65,6 @@ html.dark {
     --ink-muted: #94a3b8;
     --ink-inverted: #121212;
 
-
     --accent: #8b5cf6;
     --accent-strong: #7c3aed;
     --accent-warm: #f43f5e;
@@ -195,5 +194,19 @@ body {
 @keyframes path-dash-flow {
     to {
         stroke-dashoffset: -220;
+    }
+}
+
+@keyframes glow-sweep {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateX(400%);
+        opacity: 0;
     }
 }
