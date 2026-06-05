@@ -67,7 +67,7 @@ const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
                 }}
             >
                 <Image
-                    src="/images/hero_img_02.jpg"
+                    src="/images/hero_img_03.jpg"
                     alt="Colorful isometric decision map worlds in light and dark moods"
                     width={2048}
                     height={1136}
