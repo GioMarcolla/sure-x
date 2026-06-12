@@ -81,8 +81,8 @@ const SureWorkflowMap: FC<SureWorkflowMapProps> = ({
                 that delivers insights and results faster and better than ever!
             </p>
             <div className={cn('flex flex-col gap-16', 'lg:flex-row')}>
-                <SureQuestPathArt className="flex-1 grow" />
-                <div className="flex h-full flex-1 grow flex-col gap-4">
+                <SureQuestPathArt className="flex-1 shrink-0 self-stretch grow" />
+                <div className="flex h-full flex-1 flex-col gap-4">
                     {STEPS.map((step) => (
                         <SureStep
                             key={step.stepNumber}

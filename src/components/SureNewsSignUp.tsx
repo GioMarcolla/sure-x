@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/tailwind.utils';
 import { FC, HTMLAttributes, ReactElement, useState, FormEvent } from 'react';
+import SureBasicCard from './ui/SureBasicCard';
 
 type SureNewsSignUpProps = HTMLAttributes<HTMLDivElement> & {};
 
@@ -52,8 +53,8 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
             className={cn('mt-16 pt-16', className)}
             {...props}
         >
-            <div className="flex flex-col items-center gap-8 rounded-4xl border-2 border-(--border-color) p-16 backdrop-blur-lg">
-                <h2 className="text-5xl sm:text-6xl font-black italic md:text-7xl">
+            <SureBasicCard className="flex flex-col items-center gap-8 p-16">
+                <h2 className="text-5xl font-black italic sm:text-6xl md:text-7xl">
                     Sign up for the latest news!
                 </h2>
                 <p className="mt-2 text-base text-(--ink-muted) md:text-lg">
@@ -102,7 +103,7 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
                         {message}
                     </p>
                 )}
-            </div>
+            </SureBasicCard>
         </section>
     );
 };

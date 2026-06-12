@@ -8,7 +8,7 @@ import SureLoginModal from '@/components/SureLoginModal';
 import SureRegisterModal from '@/components/SureRegisterModal';
 import { cn } from '@/lib/tailwind.utils';
 import SureThemeButton from '@/components/home/SureThemeButton';
-import Link from 'next/link';
+import useIsMobile from '@/hooks/useIsMobile';
 
 type SureUserNavProps = HTMLAttributes<HTMLDivElement> & {};
 
@@ -17,6 +17,7 @@ const SureUserNav: FC<SureUserNavProps> = ({
     ...props
 }): ReactElement => {
     const user: UserType | null = useUserStore((store) => store.user);
+    const isMobile: boolean = useIsMobile();
 
     const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
     const [isRegisterModalOpen, setIsRegisterModalOpen] =
@@ -24,16 +25,28 @@ const SureUserNav: FC<SureUserNavProps> = ({
 
     return (
         <>
+            <SureLoginModal
+                isLoginModalOpen={isLoginModalOpen}
+                setIsLoginModalOpen={setIsLoginModalOpen}
+            />
+
+            <SureRegisterModal
+                isRegisterModalOpen={isRegisterModalOpen}
+                setIsRegisterModalOpen={setIsRegisterModalOpen}
+            />
             {user ? (
                 <div
                     className={cn(
-                        'flex flex-row gap-8',
-                        'md:justify-between md:gap-0',
+                        'flex gap-4',
+                        isMobile
+                            ? 'flex-row-reverse justify-between! gap-0!'
+                            : 'flex-row',
+                        'md:justify-between md:gap-4',
                         className
                     )}
                     {...props}
                 >
-                    <SureUserAvatarWithMenu user={user} />
+                    <SureUserAvatarWithMenu user={user || ({} as UserType)} />
                     <SureThemeButton className="border border-(--card-border) bg-(--glass-bg) shadow-sm backdrop-blur-sm" />
                 </div>
             ) : (
@@ -45,13 +58,8 @@ const SureUserNav: FC<SureUserNavProps> = ({
                     )}
                     {...props}
                 >
-                    <Link href="#sign-up" className="link hover:brightness-110 hover:text-shadow-[0_0_20px_color-mix(in_srgb,var(--accent-warm)_50%,transparent_50%)]">
-                        <span className="font-fraunces text-base md:text-xl font-bold text-(--accent-warm) italic">
-                            Sing up for the latest news!
-                        </span>
-                    </Link>
-                    {/* <SureButton
-                        className="hidden p-0! text-base text-(--accent-contrast) transition-transform hover:scale-[1.02] sm:inline"
+                    <SureButton
+                        className="p-0! text-base text-(--accent-contrast) transition-transform hover:scale-[1.02]"
                         onClick={() => setIsRegisterModalOpen(true)}
                         variant="ghost"
                     >
@@ -64,7 +72,7 @@ const SureUserNav: FC<SureUserNavProps> = ({
                         variant="ghost"
                     >
                         Sign in
-                    </SureButton> */}
+                    </SureButton>
                     <SureThemeButton
                         className={cn(
                             'absolute top-0 left-0 border border-(--card-border) bg-(--glass-bg) shadow-sm backdrop-blur-sm',
@@ -73,16 +81,6 @@ const SureUserNav: FC<SureUserNavProps> = ({
                     />
                 </div>
             )}
-
-            <SureLoginModal
-                isLoginModalOpen={isLoginModalOpen}
-                setIsLoginModalOpen={setIsLoginModalOpen}
-            />
-
-            <SureRegisterModal
-                isRegisterModalOpen={isRegisterModalOpen}
-                setIsRegisterModalOpen={setIsRegisterModalOpen}
-            />
         </>
     );
 };

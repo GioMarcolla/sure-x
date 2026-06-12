@@ -14,9 +14,10 @@ import {
 import SureBasicButton from '@/components/ui/SureBasicButton';
 import SureAvatar from '@/components/ui/SureAvatar';
 import { cn } from '@/lib/tailwind.utils';
+import SureBasicCard from '@/components/ui/SureBasicCard';
 
 type SureUserMenuProps = HTMLAttributes<HTMLElement> & {
-    user: UserType | null;
+    user: UserType;
 };
 
 const SureUserAvatarWithMenu: FC<SureUserMenuProps> = ({
@@ -48,7 +49,7 @@ const SureUserAvatarWithMenu: FC<SureUserMenuProps> = ({
         }
     };
 
-    return user ? (
+    return (
         <div
             ref={ref}
             className={cn('relative inline-block', className)}
@@ -60,35 +61,36 @@ const SureUserAvatarWithMenu: FC<SureUserMenuProps> = ({
                 aria-haspopup="menu"
                 aria-expanded={open}
             >
-                <SureAvatar avatar={user.avatar} className="h-12! w-12!" />
+                <SureAvatar avatar={user.avatar} className="h-10! w-10!" />
             </SureBasicButton>
             {open && (
-                <div
-                    className="absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-xl border border-(--card-border) bg-(--card) shadow-lg ring-1 ring-black/5 backdrop-blur-md"
+                <SureBasicCard
+                    className="absolute right-0 z-999 mt-2 w-48 rounded-xl bg-(--bg-strong) p-0"
                     role="menu"
                 >
+                    <div className="absolute -top-[7px] right-[14px] h-[12px] w-[12px] rotate-45 border border-(--border-color) border-r-transparent! border-b-transparent! bg-(--bg-strong)"></div>
                     <div className="border-b border-(--border-color) px-4 py-3 text-sm text-(--ink)">
-                        <p>Signed in as {user.firstName}</p>
+                        <p>Signed in as:</p>
+                        <p className="ml-2 font-semibold">
+                            {user.firstName} {user.lastName}
+                        </p>
                     </div>
 
-                    <div className="border-b border-(--border-color) px-4 py-3 text-sm text-(--ink) hover:bg-(--bg-strong)">
-                        <Link href="/haze-map">My Haze Map</Link>
-                    </div>
+                    <Link className="m-0 w-full p-0" href="/haze-map">
+                        <div className="border-b border-(--border-color) px-4 py-3 text-sm text-(--ink) hover:bg-(--bg-strong) hover:brightness-95">
+                            My Haze Map
+                        </div>
+                    </Link>
 
-                    <div className="px-4 py-3 text-sm text-red-600 hover:bg-(--bg-strong)">
-                        <button
-                            type="button"
-                            className="w-full text-left"
-                            onClick={handleLogout}
-                        >
-                            Logout
-                        </button>
-                    </div>
-                </div>
+                    <SureBasicButton
+                        className="w-full rounded-b-xl px-4 py-3 text-left text-sm text-red-600 hover:bg-(--bg-strong) hover:brightness-95"
+                        onClick={handleLogout}
+                    >
+                        Logout
+                    </SureBasicButton>
+                </SureBasicCard>
             )}
         </div>
-    ) : (
-        <></>
     );
 };
 

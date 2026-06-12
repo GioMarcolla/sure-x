@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/tailwind.utils';
 import { AvatarType } from '@/store/user.store';
 import Image from 'next/image';
 import {
@@ -75,7 +76,7 @@ const SureAvatar: FC<SureAvatarProps> = memo(
                     height={avatar?.height ?? 300}
                     viewBox="0 0 24 24"
                     fill="gray"
-                    className={`h-24 w-24 rounded-full bg-gray-200 ${className}`}
+                    className={cn('rounded-full bg-gray-200 aspect-square', className)}
                     aria-label="Empty user avatar"
                 >
                     <circle cx="12" cy="8" r="4" fill="#ccc" />
@@ -91,7 +92,10 @@ const SureAvatar: FC<SureAvatarProps> = memo(
             <Image
                 src={url}
                 alt={avatar?.alt || 'User avatar'}
-                className={`h-24 w-24 rounded-full border-2 border-(--border-color) object-contain ${className}`}
+                className={cn(
+                    'aspect-square rounded-full border-2 border-(--border-color) object-contain',
+                    className
+                )}
                 width={avatar?.width ?? 300}
                 height={avatar?.height ?? 300}
                 loading="lazy"

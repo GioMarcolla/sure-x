@@ -1,6 +1,7 @@
 import { cn } from '@/lib/tailwind.utils';
 import { LucideIcon } from 'lucide-react';
 import { FC, HTMLAttributes, ReactElement } from 'react';
+import SureInteractiveCard from '../ui/SureInteractiveCard';
 
 export type STEP = {
     stepNumber: number;
@@ -20,13 +21,9 @@ const SureStep: FC<SureStepProps> = ({
     ...props
 }): ReactElement => {
     return (
-        <div
-            className={cn(
-                'flex flex-row gap-5 rounded-4xl border-2 border-(--border-color) p-5 backdrop-blur-lg transition-all duration-300 ease-in-out',
-                'sm:gap-6 sm:p-6',
-                'hover:-translate-y-1 hover:shadow-[0_0_50px_color-mix(in_srgb,var(--accent-warm)_40%,transparent)]',
-                className
-            )}
+        <SureInteractiveCard
+            className={cn('flex flex-row gap-4', 'sm:gap-6 sm:p-6', className)}
+            glow="primary"
             {...props}
         >
             {Icon && (
@@ -57,7 +54,7 @@ const SureStep: FC<SureStepProps> = ({
                     {description}
                 </p>
             </div>
-        </div>
+        </SureInteractiveCard>
     );
 };
 

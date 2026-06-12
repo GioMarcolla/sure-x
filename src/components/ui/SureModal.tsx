@@ -6,10 +6,13 @@ import React, {
     memo,
     ReactElement,
     ReactNode,
+    useEffect,
+    useState,
 } from 'react';
-import SureBasicButton from './SureBasicButton';
+import { createPortal } from 'react-dom';
+import SureBasicButton from '@/components/ui/SureBasicButton';
 import { cn } from '@/lib/tailwind.utils';
-import SureBasicCard from './SureBasicCard';
+import SureBasicCard from '@/components/ui/SureBasicCard';
 
 type SureModalProps = HTMLAttributes<HTMLDivElement> & {
     isOpen: boolean;
@@ -47,33 +50,45 @@ const SureModal: FC<SureModalProps> = memo(
         cancelText = 'Cancel',
         size = 'md',
         closeOnOverlayClick = true,
-
         preventScroll = true,
         className,
         ...props
-    }): ReactElement => {
+    }): ReactElement | null => {
+        const [mounted, setMounted] = useState(false);
+
+        useEffect(() => {
+            setMounted(true);
+            return () => setMounted(false);
+        }, []);
+
         // Handle escape key
-        React.useEffect(() => {
+        useEffect(() => {
             const handleEscape = (e: KeyboardEvent) => {
                 if (e.key === 'Escape') onClose();
             };
 
             if (isOpen) {
                 document.addEventListener('keydown', handleEscape);
-                if (preventScroll) {
-                    document.body.style.overflow = 'hidden';
-                }
             }
 
             return () => {
                 document.removeEventListener('keydown', handleEscape);
-                if (preventScroll) {
-                    document.body.style.overflow = 'unset';
-                }
             };
-        }, [isOpen, onClose, preventScroll]);
+        }, [isOpen, onClose]);
 
-        if (!isOpen) return <></>;
+        // Handle scroll lock
+        useEffect(() => {
+            if (!isOpen || !preventScroll) return;
+
+            const original = document.body.style.overflow;
+            document.body.style.overflow = 'hidden';
+
+            return () => {
+                document.body.style.overflow = original;
+            };
+        }, [isOpen, preventScroll]);
+
+        if (!isOpen || !mounted) return null;
 
         const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
             if (closeOnOverlayClick && e.target === e.currentTarget) {
@@ -81,10 +96,11 @@ const SureModal: FC<SureModalProps> = memo(
             }
         };
 
-        return (
+        const modal = (
             <div
                 className={cn(
-                    'animate-in fade-in fixed inset-0 z-999 flex h-full w-full items-center justify-center bg-black/50 p-4 backdrop-blur duration-200 dark:bg-gray-950/70',
+                    'fixed inset-0 z-[9999] flex items-center justify-center',
+                    'bg-black/50 p-4 backdrop-blur dark:bg-gray-950/70',
                     className
                 )}
                 onClick={handleOverlayClick}
@@ -151,6 +167,8 @@ const SureModal: FC<SureModalProps> = memo(
                 </SureBasicCard>
             </div>
         );
+
+        return createPortal(modal, document.body); // portal to body to avoid z-index and stacking context issues
     }
 );
 

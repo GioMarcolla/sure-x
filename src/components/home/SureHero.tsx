@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Map, Sparkles } from 'lucide-react';
 import SureHeroButtons from '@/components/home/SureHeroButtons';
 import { cn } from '@/lib/tailwind.utils';
+import SureBasicCard from '../ui/SureBasicCard';
 
 type SureHeroProps = HTMLAttributes<HTMLDivElement> & {};
 
@@ -60,8 +61,8 @@ const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
                     <SureHeroButtons />
                 </div>
             </div>
-            <div
-                className="w-full flex-1 grow overflow-hidden rounded-4xl border-2 border-(--border-color)"
+            <SureBasicCard
+                className="w-full flex-1 grow overflow-hidden p-0 self-stretch"
                 style={{
                     boxShadow: '0 0 60px 5px var(--border-color)',
                 }}
@@ -77,7 +78,7 @@ const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
                         'md:aspect-video'
                     )}
                 />
-            </div>
+            </SureBasicCard>
         </section>
     );
 };

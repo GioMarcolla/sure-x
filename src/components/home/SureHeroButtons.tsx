@@ -56,12 +56,7 @@ const SureHeroButtons = () => {
     return (
         <>
             <div className="relative flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Link href="#sign-up">
-                    <SureButton className="h-full">
-                        Sing up for the latest news!
-                    </SureButton>
-                </Link>
-                {/* {!user?.email && (
+                {!user?.email && (
                     <SureButton onClick={handlePrimaryClick} className="h-full">
                         Start a new quest
                     </SureButton>
@@ -73,7 +68,7 @@ const SureHeroButtons = () => {
                 >
                     {!user?.username ? 'Login to c' : 'C'}ontinue your adventure{' '}
                     {user?.username ? `(${user.username})` : ''}
-                </SureButton> */}
+                </SureButton>
             </div>
             <SureModal
                 isOpen={isLoginModalOpen}
