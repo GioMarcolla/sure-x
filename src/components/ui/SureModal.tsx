@@ -9,6 +9,7 @@ import React, {
 } from 'react';
 import SureBasicButton from './SureBasicButton';
 import { cn } from '@/lib/tailwind.utils';
+import SureBasicCard from './SureBasicCard';
 
 type SureModalProps = HTMLAttributes<HTMLDivElement> & {
     isOpen: boolean;
@@ -91,7 +92,7 @@ const SureModal: FC<SureModalProps> = memo(
                 aria-modal="true"
                 {...props}
             >
-                <div
+                <SureBasicCard
                     className={`animate-in w-full ${sizeClasses[size]} zoom-in-95 relative flex transform flex-col gap-8 rounded-2xl bg-(--bg) p-8 shadow-lg duration-200`}
                     onClick={(e) => e.stopPropagation()}
                 >
@@ -147,7 +148,7 @@ const SureModal: FC<SureModalProps> = memo(
                             )}
                         </div>
                     )}
-                </div>
+                </SureBasicCard>
             </div>
         );
     }

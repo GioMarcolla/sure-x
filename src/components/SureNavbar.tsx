@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { FC, HTMLAttributes, ReactElement, useEffect, useState } from 'react';
-import SureLogo from '@/components/SureLogo';
+import SureLogo from '@/components/ui/SureLogo';
 import { cn } from '@/lib/tailwind.utils';
 import SureUserNav from '@/components/SureUserNav';
-import SureButton from '@/components/SureButton';
+import SureButton from '@/components/ui/SureButton';
 import { MenuIcon } from 'lucide-react';
 
 type MENU_ITEM = {

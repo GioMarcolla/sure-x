@@ -2,14 +2,14 @@ import { cn } from '@/lib/tailwind.utils';
 import { InfinityIcon, LucideIcon, Medal, Trophy } from 'lucide-react';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 
-type STAT = {
+export type SURE_NUMBERS_STAT = {
     stat: string;
     label: string;
     icon: LucideIcon;
     tone: string;
 };
 
-const STATS: Array<STAT> = [
+const STATS: Array<SURE_NUMBERS_STAT> = [
     {
         stat: '10K+',
         label: 'Missions accomplished',
@@ -45,7 +45,7 @@ const SureNumbers: FC<SureNumbers> = ({
     return (
         <section
             className={cn(
-                'mt-32 pt-16 grid grid-cols-1 items-center justify-between gap-8',
+                'mt-32 grid grid-cols-1 items-center justify-between gap-8 pt-16',
                 'md:grid-cols-2',
                 'lg:grid-cols-4',
                 className

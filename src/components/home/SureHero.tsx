@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes, ReactElement } from 'react';
-import SurePill from '@/components/SurePill';
+import SurePill from '@/components/ui/SurePill';
 import Image from 'next/image';
 import { Map, Sparkles } from 'lucide-react';
 import SureHeroButtons from '@/components/home/SureHeroButtons';

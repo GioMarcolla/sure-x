@@ -9,7 +9,7 @@ import {
     TargetIcon,
     TrendingUpIcon,
 } from 'lucide-react';
-import SurePill from '@/components/SurePill';
+import SurePill from '@/components/ui/SurePill';
 
 const STEPS: Array<STEP> = [
     {

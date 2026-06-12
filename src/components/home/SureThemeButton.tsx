@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, HTMLAttributes, FC } from 'react';
-import SureBasicButton from './ui/SureBasicButton';
+import SureBasicButton from '@/components/ui/SureBasicButton';
 import { cn } from '@/lib/tailwind.utils';
 
 const SunIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (

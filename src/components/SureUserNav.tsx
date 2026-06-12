@@ -2,12 +2,12 @@
 
 import { UserType, useUserStore } from '@/store/user.store';
 import { FC, HTMLAttributes, ReactElement, useState } from 'react';
-import SureButton from '@/components/SureButton';
+import SureButton from '@/components/ui/SureButton';
 import SureUserAvatarWithMenu from '@/components/SureUserAvatarWithMenu';
 import SureLoginModal from '@/components/SureLoginModal';
 import SureRegisterModal from '@/components/SureRegisterModal';
 import { cn } from '@/lib/tailwind.utils';
-import SureThemeButton from '@/components/SureThemeButton';
+import SureThemeButton from '@/components/home/SureThemeButton';
 import Link from 'next/link';
 
 type SureUserNavProps = HTMLAttributes<HTMLDivElement> & {};

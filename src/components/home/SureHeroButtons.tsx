@@ -1,12 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import SureButton from '../SureButton';
-import SureModal from '../ui/SureModal';
+import SureButton from '@/components/ui/SureButton';
+import SureModal from '@/components/ui/SureModal';
 import { useRouter } from 'next/navigation';
 import { useUserStore } from '@/store/user.store';
-import SureLoginForm from '../auth/SureLoginForm';
-import SureRegisterForm from '../auth/SureRegisterForm';
+import SureLoginForm from '@/components/auth/SureLoginForm';
+import SureRegisterForm from '@/components/auth/SureRegisterForm';
 import Link from 'next/link';
 
 const SureHeroButtons = () => {

@@ -6,9 +6,15 @@ import { cn } from '@/lib/tailwind.utils';
 import { ArrowRight } from 'lucide-react';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 
-type SureVucaProps = HTMLAttributes<HTMLDivElement> & {};
+export type SURE_VUCA_ROW = {
+    left: string;
+    center: string;
+    right: string;
+    color: string;
+    delay: string;
+};
 
-const rows = [
+const rows: Array<SURE_VUCA_ROW> = [
     {
         left: 'Volatility',
         center: 'V',
@@ -37,7 +43,9 @@ const rows = [
         color: 'var(--accent-warm)',
         delay: '1.5s',
     },
-];
+] as const;
+
+type SureVucaProps = HTMLAttributes<HTMLDivElement> & {};
 
 const SureVuca: FC<SureVucaProps> = ({ className, ...props }): ReactElement => {
     const isMobile = useIsMobile();

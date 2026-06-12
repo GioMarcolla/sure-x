@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes, ReactElement } from 'react';
-import SurePill from '@/components/SurePill';
+import SurePill from '@/components/ui/SurePill';
 import {
     BrainIcon,
     CpuIcon,
@@ -11,9 +11,9 @@ import {
     TrendingUpIcon,
 } from 'lucide-react';
 import { cn } from '@/lib/tailwind.utils';
-import SureLoadingCard from '../ui/SureLoadingCards';
+import SureLoadingCard from '@/components/ui/SureLoadingCards';
 
-type FEATURE = {
+export type FEATURE = {
     title: string;
     description: string;
     icon: LucideIcon;

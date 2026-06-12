@@ -1,6 +1,7 @@
 import { cn } from '@/lib/tailwind.utils';
 import { LucideIcon } from 'lucide-react';
 import { FC, HTMLAttributes, ReactElement } from 'react';
+import SureInteractiveCard from '@/components/ui/SureInteractiveCard';
 
 type SureLoadingCardProps = HTMLAttributes<HTMLDivElement> & {
     title: string;
@@ -18,13 +19,11 @@ const SureLoadingCard: FC<SureLoadingCardProps> = ({
     ...props
 }): ReactElement => {
     const clamped = Math.min(100, Math.max(8, level));
+
     return (
-        <div
-            className={cn(
-                'relative flex flex-col gap-4 rounded-4xl border-2 border-(--border-color) p-6 backdrop-blur-lg transition-all duration-300 ease-in-out',
-                'hover:-translate-y-1 hover:shadow-[0_0_50px_color-mix(in_srgb,var(--accent-contrast)_40%,transparent)]',
-                className
-            )}
+        <SureInteractiveCard
+            className={cn('', className)}
+            glow="contrast"
             {...props}
         >
             <div className="flex items-start justify-between gap-3">
@@ -66,7 +65,7 @@ const SureLoadingCard: FC<SureLoadingCardProps> = ({
                     {description}
                 </p>
             )}
-        </div>
+        </SureInteractiveCard>
     );
 };
 
