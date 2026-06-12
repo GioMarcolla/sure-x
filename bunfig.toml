@@ -1,0 +1,7 @@
+# bunfig.toml
+[install]
+exact = true
+
+[run]
+# Always use Bun's native TypeScript runner
+bun = true

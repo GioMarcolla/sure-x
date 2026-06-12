@@ -99,7 +99,7 @@ const SureModal: FC<SureModalProps> = memo(
         const modal = (
             <div
                 className={cn(
-                    'fixed inset-0 z-[9999] flex items-center justify-center',
+                    'fixed inset-0 z-999 flex items-center justify-center',
                     'bg-black/50 p-4 backdrop-blur dark:bg-gray-950/70',
                     className
                 )}
