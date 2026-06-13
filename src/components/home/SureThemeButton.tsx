@@ -54,6 +54,7 @@ const SureThemeButton: FC<SureThemeButtonProps> = ({ className, ...props }) => {
 
     return (
         <SureBasicButton
+            type="button"
             aria-pressed={isDark}
             aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             onClick={toggleTheme}

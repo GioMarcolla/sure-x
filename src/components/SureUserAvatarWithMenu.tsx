@@ -56,6 +56,7 @@ const SureUserAvatarWithMenu: FC<SureUserMenuProps> = ({
             {...props}
         >
             <SureBasicButton
+                type="button"
                 onClick={() => setOpen((o) => !o)}
                 className="focus:ring-accent rounded-full focus:ring-2 focus:outline-none"
                 aria-haspopup="menu"
@@ -83,6 +84,7 @@ const SureUserAvatarWithMenu: FC<SureUserMenuProps> = ({
                     </Link>
 
                     <SureBasicButton
+                        type="button"
                         className="w-full rounded-b-xl px-4 py-3 text-left text-sm text-red-600 hover:bg-(--bg-strong) hover:brightness-95"
                         onClick={handleLogout}
                     >

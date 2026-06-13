@@ -120,6 +120,7 @@ const SureModal: FC<SureModalProps> = memo(
                             </h2>
                         )}
                         <SureBasicButton
+                            type="button"
                             onClick={onClose}
                             className="transition-color absolute top-0 right-0 ml-auto rounded-full text-(--ink) hover:brightness-110"
                             aria-label="Close modal"
@@ -148,6 +149,7 @@ const SureModal: FC<SureModalProps> = memo(
                         <div className="flex justify-end gap-3 p-6 pt-0">
                             {showCloseButton && (
                                 <SureBasicButton
+                                    type="button"
                                     onClick={onClose}
                                     className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-(--ink) transition-colors hover:bg-gray-50 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:outline-none"
                                 >
@@ -156,6 +158,7 @@ const SureModal: FC<SureModalProps> = memo(
                             )}
                             {showConfirmButton && onConfirm && (
                                 <SureBasicButton
+                                    type="button"
                                     onClick={onConfirm}
                                     className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                                 >

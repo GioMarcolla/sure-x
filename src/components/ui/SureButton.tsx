@@ -4,7 +4,10 @@ import { cn } from '@/lib/tailwind.utils';
 
 const VARIANTS: Record<string, string> = {
     primary:
-        'relative min-h-[44px] px-8 py-2.5 text-base font-semibold tracking-tight text-(--text-negative) shadow-[0_4px_0_var(--accent-strong)] transition-all duration-200 ease-out active:translate-y-[2px] active:shadow-[0_2px_0_var(--accent-strong)]',
+        `relative min-h-[44px] px-8 py-2.5 text-base font-semibold tracking-tight text-(--text-negative) shadow-[0_4px_0_color-mix(in_srgb,var(--accent),black_20%)]
+        transition-all duration-200 ease-out 
+        active:translate-y-[2px] active:shadow-[0_2px_0_var(--accent-strong)]
+        hover:bg-(--accent-contrast) hover:shadow-[0_4px_0_color-mix(in_srgb,var(--accent-contrast),black_20%)]`,
     secondary:
         'relative min-h-[44px] border border-(--border-color) bg-(--bg-strong) px-8 py-2.5 text-base font-semibold tracking-tight text-(--ink) shadow-[0_4px_0_var(--border-color-strong)] backdrop-blur-sm transition-all duration-200 hover:border-(--accent) hover:shadow-[0_4px_0_var(--accent-strong)] hover:text-(--accent-strong)',
     error: 'bg-(--error) px-8 py-2.5 text-base font-semibold text-(--text-negative) shadow-sm hover:opacity-95',

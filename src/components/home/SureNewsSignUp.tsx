@@ -1,8 +1,9 @@
 'use client';
 
 import { cn } from '@/lib/tailwind.utils';
-import { FC, HTMLAttributes, ReactElement, useState, FormEvent } from 'react';
-import SureBasicCard from '../ui/SureBasicCard';
+import { FC, HTMLAttributes, ReactElement, SubmitEvent, useState } from 'react';
+import SureBasicCard from '@/components/ui/SureBasicCard';
+import SureButton from '@/components/ui/SureButton';
 
 type SureNewsSignUpProps = HTMLAttributes<HTMLDivElement> & {};
 
@@ -17,7 +18,7 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
     >('idle');
     const [message, setMessage] = useState('');
 
-    async function handleSubmit(e: FormEvent) {
+    const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!email.trim()) return;
 
@@ -45,7 +46,7 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
             setStatus('error');
             setMessage('Network error. Please try again.');
         }
-    }
+    };
 
     return (
         <section
@@ -82,13 +83,13 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
                         disabled={status === 'loading'}
                         className="h-full max-w-lg grow rounded-lg border-2 border-(--border-color) bg-(--bg-strong) p-3 text-base text-(--ink) focus:ring-2 focus:ring-(--accent) focus:outline-none disabled:opacity-50"
                     />
-                    <button
+                    <SureButton
                         type="submit"
                         disabled={status === 'loading'}
-                        className="h-full min-w-16 rounded-lg bg-(--accent) px-4 py-2 text-lg font-semibold text-(--ink-inverted) transition-colors hover:bg-(--accent-contrast) disabled:cursor-not-allowed disabled:opacity-50"
+                        className="h-full min-w-16 px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                         {status === 'loading' ? '...' : 'Sign Up NOW!'}
-                    </button>
+                    </SureButton>
                 </form>
 
                 {status !== 'idle' && status !== 'loading' && (
