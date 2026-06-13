@@ -68,7 +68,7 @@ const SureUserAvatarWithMenu: FC<SureUserMenuProps> = ({
                     className="absolute right-0 z-999 mt-2 w-48 rounded-xl bg-(--bg-strong) p-0"
                     role="menu"
                 >
-                    <div className="absolute -top-[7px] right-[14px] h-[12px] w-[12px] rotate-45 border border-(--border-color) border-r-transparent! border-b-transparent! bg-(--bg-strong)"></div>
+                    <div className="absolute -top-1.75 right-3.5 h-3 w-3 rotate-45 border border-(--border-color) border-r-transparent! border-b-transparent! bg-(--bg-strong)"></div>
                     <div className="border-b border-(--border-color) px-4 py-3 text-sm text-(--ink)">
                         <p>Signed in as:</p>
                         <p className="ml-2 font-semibold">
