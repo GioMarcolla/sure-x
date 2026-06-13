@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/tailwind.utils';
 import { FC, HTMLAttributes, ReactElement, useState, FormEvent } from 'react';
-import SureBasicCard from './ui/SureBasicCard';
+import SureBasicCard from '../ui/SureBasicCard';
 
 type SureNewsSignUpProps = HTMLAttributes<HTMLDivElement> & {};
 

@@ -5,7 +5,7 @@ import SureStarfield from '@/components/SureStarfield';
 import SureWorkflowMap from '@/components/home/SureWorkflowMap';
 import { FC, HTMLAttributes, ReactElement } from 'react';
 import SureFeatures from '@/components/home/SureFeatures';
-import SureNewsSignUp from '@/components/SureNewsSignUp';
+import SureNewsSignUp from '@/components/home/SureNewsSignUp';
 import SureFooter from '@/components/SureFooter';
 import SureResearch from '@/components/home/SureResearch';
 
