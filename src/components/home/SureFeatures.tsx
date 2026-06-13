@@ -11,7 +11,7 @@ import {
     TrendingUpIcon,
 } from 'lucide-react';
 import { cn } from '@/lib/tailwind.utils';
-import SureLoadingCard from '@/components/ui/SureLoadingCards';
+import SureLoadingCard from '@/components/ui/SureLoadingCard';
 
 export type FEATURE = {
     title: string;

@@ -14,7 +14,7 @@ const SureBasicCard: FC<SureBasicCardProps> = ({
     return (
         <div
             className={cn(
-                'rounded-4xl border border-(--border-color) bg-(--bg-strong)/5 p-8 backdrop-blur-[2px]',
+                'flex flex-col gap-4 rounded-4xl border border-(--border-color) bg-(--bg-strong)/5 p-8 backdrop-blur-[2px]',
                 className
             )}
             {...props}

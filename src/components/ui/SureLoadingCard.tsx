@@ -22,11 +22,11 @@ const SureLoadingCard: FC<SureLoadingCardProps> = ({
 
     return (
         <SureInteractiveCard
-            className={cn('', className)}
+            className={cn('gap-4', className)}
             glow="contrast"
             {...props}
         >
-            <div className="flex items-start justify-between gap-3">
+            <div className="flex items-start justify-between gap-4">
                 {Icon && (
                     <div
                         className="rounded-2xl border-2 border-(--bg-accent)/40 bg-(--accent)/25"
@@ -57,7 +57,7 @@ const SureLoadingCard: FC<SureLoadingCardProps> = ({
                     </p>
                 </div>
             </div>
-            <h3 className="text-xl font-bold tracking-tight sm:text-2xl">
+            <h3 className="text-xl font-bold tracking-tight sm:text-2xl pt-2">
                 {title}
             </h3>
             {description && (

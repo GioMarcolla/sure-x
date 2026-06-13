@@ -13,7 +13,7 @@ const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
         <section
             id="hero"
             className={cn(
-                'mt-16 pt-16 flex w-full flex-col items-center gap-16',
+                'mt-16 flex w-full flex-col items-center gap-16 pt-16',
                 'lg:flex-row',
                 className
             )}
@@ -22,7 +22,7 @@ const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
             <div className="flex flex-1 grow flex-col gap-8 px-4">
                 <div
                     className={cn(
-                        'flex flex-col justify-center gap-4 mx-auto',
+                        'mx-auto flex flex-col justify-center gap-4',
                         'sm:flex-row'
                     )}
                 >
@@ -35,13 +35,8 @@ const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
                     />
                 </div>
                 <div className="text-center">
-                    <h1 className="font-black">
-                        <span
-                            className={cn('text-5xl font-black', 'md:text-6xl')}
-                        >
-                            It's Time to Level Up
-                        </span>
-                        <br />
+                    <h1 className={cn('text-5xl font-black', 'md:text-6xl')}>
+                        It's Time to Level Up <br />
                         <span
                             className={cn(
                                 'font-fraunces text-7xl text-(--accent) italic',
@@ -62,7 +57,7 @@ const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
                 </div>
             </div>
             <SureBasicCard
-                className="w-full flex-1 grow overflow-hidden p-0 self-stretch"
+                className="w-full flex-1 grow self-stretch overflow-hidden p-0"
                 style={{
                     boxShadow: '0 0 60px 5px var(--border-color)',
                 }}

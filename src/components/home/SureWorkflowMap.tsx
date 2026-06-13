@@ -52,7 +52,7 @@ const SureWorkflowMap: FC<SureWorkflowMapProps> = ({
         <section
             id="how-it-works"
             className={cn(
-                'mt-16 pt-16 flex w-full flex-col items-center justify-center gap-8',
+                'mt-16 flex w-full flex-col items-center justify-center gap-8 pt-16',
                 className
             )}
             {...props}
@@ -66,7 +66,7 @@ const SureWorkflowMap: FC<SureWorkflowMapProps> = ({
                     'md:text-6xl'
                 )}
             >
-                <span>From a single choice to an</span> <br />
+                From a single choice to an <br />
                 <span
                     className={cn(
                         'font-fraunces text-7xl text-(--accent-contrast) italic',
@@ -81,7 +81,7 @@ const SureWorkflowMap: FC<SureWorkflowMapProps> = ({
                 that delivers insights and results faster and better than ever!
             </p>
             <div className={cn('flex flex-col gap-16', 'lg:flex-row')}>
-                <SureQuestPathArt className="flex-1 shrink-0 self-stretch grow" />
+                <SureQuestPathArt className="flex-1 shrink-0 grow self-stretch" />
                 <div className="flex h-full flex-1 flex-col gap-4">
                     {STEPS.map((step) => (
                         <SureStep

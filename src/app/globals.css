@@ -105,11 +105,15 @@ html.dark {
 }
 
 .font-space-grotesk {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
 .font-fraunces {
-    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-family: var(--font-fraunces), 'Times New Roman', serif;
+}
+
+.font-roboto {
+    font-family: var(--font-roboto), 'Helvetica Neue', sans-serif;
 }
 
 html,
@@ -127,7 +131,39 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family:
+        var(--font-roboto),
+        system-ui,
+        -apple-system,
+        sans-serif,
+        serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family:
+        var(--font-space-grotesk),
+        system-ui,
+        -apple-system,
+        sans-serif,
+        serif;
+    /* font-weight: 700; */
+    color: var(--ink);
+
+    margin: 0;
+    span {
+        font-size: var(--text-7xl);
+        font-family:
+            var(--font-fraunces),
+            system-ui,
+            -apple-system,
+            sans-serif,
+            serif;
+    }
 }
 
 /**************/

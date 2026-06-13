@@ -4,8 +4,30 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import { cookies } from 'next/headers';
 import SureThemeScript from '@/components/ui/SureThemeScript';
+import { Fraunces, Roboto, Space_Grotesk } from 'next/font/google';
+import '@/app/globals.css';
+import { cn } from '@/lib/tailwind.utils';
 
-import './globals.css';
+const spaceGrotesk = Space_Grotesk({
+    weight: ['400', '500', '600', '700'],
+    subsets: ['latin', 'latin-ext'],
+    variable: '--font-space-grotesk',
+    display: 'swap',
+});
+
+const fraunces = Fraunces({
+    weight: ['400', '500', '600', '700', '800', '900'],
+    subsets: ['latin', 'latin-ext'],
+    variable: '--font-fraunces',
+    display: 'swap',
+});
+
+const roboto = Roboto({
+    weight: ['400', '500', '600', '700', '800', '900'],
+    subsets: ['latin', 'latin-ext'],
+    variable: '--font-roboto',
+    display: 'swap',
+});
 
 export const metadata: Metadata = {
     title: {
@@ -83,7 +105,13 @@ const RootLayout: FC<RootLayoutProps> = async ({
     return (
         <html
             lang="en"
-            className={`min-h-dvh antialiased ${theme ?? ''}`}
+            className={cn(
+                'min-h-dvh antialiased',
+                spaceGrotesk.variable,
+                fraunces.variable,
+                roboto.variable,
+                theme ?? ''
+            )}
             suppressHydrationWarning
         >
             <head>{!theme && <SureThemeScript />}</head>
