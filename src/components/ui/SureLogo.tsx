@@ -32,7 +32,7 @@ const SureLogo: FC<SureLogoProps> = ({ className, ...props }): ReactElement => {
                     priority
                 />
             </div>
-            <h1 className="font-roboto flex items-center p-0 text-lg/4 font-black">
+            <h1 className="font-roboto flex items-center p-0 text-lg/4! font-black">
                 Sure Play
                 <span className="text-[42px]! pt-px font-space-grotesk text-(--ink)">
                     !
