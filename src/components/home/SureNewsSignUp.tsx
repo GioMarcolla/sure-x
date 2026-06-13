@@ -4,6 +4,7 @@ import { cn } from '@/lib/tailwind.utils';
 import { FC, HTMLAttributes, ReactElement, SubmitEvent, useState } from 'react';
 import SureBasicCard from '@/components/ui/SureBasicCard';
 import SureButton from '@/components/ui/SureButton';
+import SureInput from '@/components/ui/SureInput';
 
 type SureNewsSignUpProps = HTMLAttributes<HTMLDivElement> & {};
 
@@ -67,21 +68,19 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
                     onSubmit={handleSubmit}
                     className="mt-8 flex w-full max-w-[70%] flex-col items-center justify-center gap-4 lg:flex-row"
                 >
-                    <input
+                    <SureInput
                         type="text"
                         placeholder="Enter your name"
                         value={name}
                         onChange={(ev) => setName(ev.target.value)}
                         disabled={status === 'loading'}
-                        className="h-full max-w-lg grow rounded-lg border-2 border-(--border-color) bg-(--bg-strong) p-3 text-base text-(--ink) focus:ring-2 focus:ring-(--accent) focus:outline-none disabled:opacity-50"
                     />
-                    <input
+                    <SureInput
                         type="email"
                         placeholder="Enter your email"
                         value={email}
                         onChange={(ev) => setEmail(ev.target.value)}
                         disabled={status === 'loading'}
-                        className="h-full max-w-lg grow rounded-lg border-2 border-(--border-color) bg-(--bg-strong) p-3 text-base text-(--ink) focus:ring-2 focus:ring-(--accent) focus:outline-none disabled:opacity-50"
                     />
                     <SureButton
                         type="submit"
