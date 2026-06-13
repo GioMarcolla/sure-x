@@ -37,16 +37,16 @@ const STATS: Array<SURE_NUMBERS_STAT> = [
     },
 ] as const;
 
-type SureNumbers = HTMLAttributes<HTMLDivElement> & {};
+type SureNumbersProps = HTMLAttributes<HTMLDivElement> & {};
 
-const SureNumbers: FC<SureNumbers> = ({
+const SureNumbers: FC<SureNumbersProps> = ({
     className,
     ...props
 }): ReactElement => {
     return (
         <section
             className={cn(
-                'mt-16 grid grid-cols-1 items-center justify-between gap-8 pt-16',
+                'mt-16 grid grid-cols-1 items-stretch justify-between gap-8 pt-16',
                 'md:grid-cols-2',
                 'lg:grid-cols-4',
                 className
@@ -58,7 +58,7 @@ const SureNumbers: FC<SureNumbers> = ({
                 return (
                     <SureBasicCard
                         key={'stat-list-' + index}
-                        className="group relative mt-16 pt-16 flex flex-col items-center gap-4 overflow-visible"
+                        className="group relative mt-16 flex flex-col items-center gap-4 overflow-visible pt-16"
                     >
                         <div
                             className="absolute z-10 flex h-24 w-24 -translate-y-[calc(100%+1rem)] items-center justify-center rounded-2xl text-white shadow-xl ring-4 ring-white/10 transition-all duration-300 group-hover:scale-110 group-hover:-rotate-12 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
@@ -74,7 +74,7 @@ const SureNumbers: FC<SureNumbers> = ({
                         <h3 className="mt-8 text-5xl font-black tracking-tighter text-(--ink) sm:text-6xl">
                             {item.stat}
                         </h3>
-                        <p className="text-sm font-bold tracking-widest text-(--ink-muted) uppercase opacity-80">
+                        <p className="text-lg text-(--ink-muted) sm:text-xl md:text-2xl">
                             {item.label}
                         </p>
                     </SureBasicCard>

@@ -76,13 +76,21 @@ const SureWorkflowMap: FC<SureWorkflowMapProps> = ({
                     ever-growing map!
                 </span>{' '}
             </h2>
-            <p className="text-lg text-(--ink-muted) sm:text-xl">
+            <p className="mt-4 text-lg text-(--ink-muted) sm:text-xl md:text-2xl">
                 Every choice you make evolves in a playful, adaptive adventure
                 that delivers insights and results faster and better than ever!
             </p>
-            <div className={cn('flex flex-col gap-16', 'lg:flex-row')}>
-                <SureQuestPathArt className="flex-1 shrink-0 grow self-stretch" />
-                <div className="flex h-full flex-1 flex-col gap-4">
+            <div
+                className={cn(
+                    'flex flex-col gap-16',
+                    'lg:flex-row'
+                )}
+                style={{
+                    gridTemplateRows: 'min-content 1fr',
+                }}
+            >
+                <SureQuestPathArt className="flex-1" />
+                <div className="flex flex-1 flex-col gap-4">
                     {STEPS.map((step) => (
                         <SureStep
                             key={step.stepNumber}

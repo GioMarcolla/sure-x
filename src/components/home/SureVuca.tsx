@@ -79,7 +79,7 @@ const SureVuca: FC<SureVucaProps> = ({ className, ...props }): ReactElement => {
                             />
                         ) : null}
 
-                        <p className="relative z-10 flex flex-row items-center justify-end text-right">
+                        <p className="my-auto text-end align-middle text-lg text-(--ink-muted) sm:text-xl md:text-2xl">
                             {row.left}
                         </p>
                         <ArrowRight />
@@ -90,7 +90,7 @@ const SureVuca: FC<SureVucaProps> = ({ className, ...props }): ReactElement => {
                             {row.center}
                         </p>
                         <ArrowRight />
-                        <p className="relative z-10 flex flex-row items-center justify-start text-left">
+                        <p className="my-auto text-start align-middle text-lg text-(--ink-muted) sm:text-xl md:text-2xl">
                             {row.right}
                         </p>
                     </div>

@@ -21,7 +21,7 @@ const SureResearch: FC<SureResearchProps> = ({
             <h2 className="group flex w-full items-center justify-center gap-4 text-center text-5xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                 Research & Development
             </h2>
-            <p className="w-full text-center text-lg text-(--ink-muted)">
+            <p className="mt-4 text-lg text-(--ink-muted) sm:text-xl md:text-2xl">
                 SurePlay builds solutions to address the challenges of VUCA. Our
                 team of researchers and developers are working tirelessly to
                 bring the future of decision-making to life. By breaking down

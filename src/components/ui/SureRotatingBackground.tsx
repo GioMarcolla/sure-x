@@ -9,7 +9,7 @@ const SureRotatingBackground: FC<SureRotatingBackgroundProps> = ({
     className,
     ...props
 }) => {
-    const isMobile = useIsMobile();
+    const isMobile = useIsMobile(); 
     const prefersReducedMotion = usePrefersReducedMotion();
 
     return (

@@ -19,27 +19,28 @@ const SureQuestPathArt: FC<SureQuestPathArtProps> = ({
     return (
         <SureBasicCard
             className={cn(
-                'relative flex h-full w-full items-center justify-center overflow-hidden',
+                'relative min-h-0 w-full overflow-hidden',
                 className
             )}
             {...props}
         >
             <div
-                className="absolute inset-6 rounded-3xl bg-linear-to-b from-(--accent)/12 via-transparent to-(--accent-contrast)/10 opacity-80"
+                className="absolute inset-8 rounded-3xl bg-linear-to-b from-(--accent)/12 via-transparent to-(--accent-contrast)/10 opacity-80"
                 aria-hidden
             />
             <svg
-                className="relative z-1 text-(--accent)"
-                viewBox="0 0 320 420"
+                className="relative z-1 min-h-0 h-[stretch] text-(--accent)"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
                 fill="none"
                 aria-hidden
             >
                 {prefersReducedMotion || isMobile ? (
                     <path
                         key="static-pathline"
-                        d="M 60 0 C 120 90, 40 160, 100 210 S 240 260, 200 320 S 80 380, 160 420"
+                        d="M 18.75 0 C 37.5 21.4, 12.5 38.1, 31.25 50 S 75 61.9, 62.5 76.2 S 25 90.5, 50 100"
                         stroke="currentColor"
-                        strokeWidth="3"
+                        strokeWidth="1"
                         strokeLinecap="round"
                         opacity={0.7}
                     />
@@ -47,9 +48,9 @@ const SureQuestPathArt: FC<SureQuestPathArtProps> = ({
                     <path
                         key="animated-pathline"
                         className="animate-quest-pathline"
-                        d="M 60 0 C 120 90, 40 160, 100 210 S 240 260, 200 320 S 80 380, 160 420"
+                        d="M 18.75 0 C 37.5 21.4, 12.5 38.1, 31.25 50 S 75 61.9, 62.5 76.2 S 25 90.5, 50 100"
                         stroke="currentColor"
-                        strokeWidth="3"
+                        strokeWidth="1"
                         strokeLinecap="round"
                         opacity={0.7}
                     />
