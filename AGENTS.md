@@ -7,7 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 <!-- END:nextjs-agent-rules -->
 
 ## Wiki Knowledge Base
-Path: ~/path/to/vault
+Path: ~/Documents/vaults/claude-obsidian
 
 When you need context not already in this project:
 1. Read wiki/hot.md first (recent context cache)
