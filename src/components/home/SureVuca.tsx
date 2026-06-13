@@ -65,7 +65,7 @@ const SureVuca: FC<SureVucaProps> = ({ className, ...props }): ReactElement => {
                 {rows.map((row) => (
                     <div
                         key={row.center}
-                        className="relative grid w-full grid-cols-[1fr_auto_1fr] items-center gap-4 overflow-hidden"
+                        className="relative grid w-full grid-cols-[1fr_auto_auto_auto_1fr] items-center gap-4 overflow-hidden"
                     >
                         {/* Faint glow — color matches the center letter */}
                         {!(isMobile || prefersReducedMotion) ? (
@@ -80,16 +80,18 @@ const SureVuca: FC<SureVucaProps> = ({ className, ...props }): ReactElement => {
                         ) : null}
 
                         <p className="relative z-10 flex flex-row items-center justify-end text-right">
-                            {row.left} <ArrowRight />
+                            {row.left}
                         </p>
+                        <ArrowRight />
                         <p
                             className="relative z-10 text-center text-4xl font-black"
                             style={{ color: row.color }}
                         >
                             {row.center}
                         </p>
+                        <ArrowRight />
                         <p className="relative z-10 flex flex-row items-center justify-start text-left">
-                            <ArrowRight /> {row.right}
+                            {row.right}
                         </p>
                     </div>
                 ))}

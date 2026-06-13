@@ -1,0 +1,29 @@
+import useIsMobile from '@/hooks/useIsMobile';
+import usePrefersReducedMotion from '@/hooks/usePrefersReducedMotion';
+import { FC, HTMLAttributes } from 'react';
+
+type SureRotatingBackgroundProps = HTMLAttributes<HTMLDivElement> & {};
+
+const SureRotatingBackground: FC<SureRotatingBackgroundProps> = () => {
+    const isMobile = useIsMobile();
+    const prefersReducedMotion = usePrefersReducedMotion();
+
+    return (
+        <div
+            className="pointer-events-none absolute inset-0 top-[10%] -left-full h-[80%] w-[300%] origin-center opacity-30 will-change-transform"
+            style={{
+                background:
+                    'conic-gradient(from 120deg, color-mix(in srgb, var(--accent) 35%, transparent), transparent, color-mix(in srgb, var(--accent-contrast) 35%, transparent))',
+                animation:
+                    prefersReducedMotion || isMobile
+                        ? 'none'
+                        : 'breathing-spin 48s linear infinite',
+                transform: 'translateZ(0)',
+            }}
+        />
+    );
+};
+
+SureRotatingBackground.displayName = 'SureRotatingBackground';
+
+export default SureRotatingBackground;

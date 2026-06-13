@@ -1,19 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 const useIsMobile = () => {
-    const [isMobile, setIsMobile] = useState(false);
+    const getInitial = () =>
+        typeof window !== 'undefined' &&
+        window.matchMedia('(hover: none) and (pointer: coarse)').matches
+
+    const [isMobile, setIsMobile] = useState<boolean>(getInitial)
 
     useEffect(() => {
-        // Primary check: coarse pointer (touch) and no hover
-        const mql = window.matchMedia('(hover: none) and (pointer: coarse)');
-        setIsMobile(mql.matches);
+        if (typeof window === 'undefined') return
 
-        const handler = (err: MediaQueryListEvent) => setIsMobile(err.matches);
-        mql.addEventListener('change', handler);
-        return () => mql.removeEventListener('change', handler);
-    }, []);
+        const mql = window.matchMedia('(hover: none) and (pointer: coarse)')
+        const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
 
-    return isMobile;
-};
+        mql.addEventListener('change', handler)
+        return () => mql.removeEventListener('change', handler)
+    }, [])
 
-export default useIsMobile;
+    return isMobile
+}
+
+export default useIsMobile

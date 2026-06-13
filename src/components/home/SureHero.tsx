@@ -35,8 +35,9 @@ const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
                     />
                 </div>
                 <div className="text-center">
-                    <h1>
-                        It's Time to Level Up <br />
+                    <h1 className="text-center">
+                        It's Time to Level Up
+                        <br />
                         <span
                             className={cn(
                                 'font-fraunces text-7xl text-(--accent) italic',
