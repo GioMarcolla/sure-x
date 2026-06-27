@@ -13,7 +13,7 @@ const SureHero: FC<SureHeroProps> = ({ className, ...props }): ReactElement => {
         <section
             id="hero"
             className={cn(
-                'mt-16 flex w-full flex-col items-center gap-16 pt-16',
+                'mt-16 flex w-full flex-col items-center gap-16 pt-32', 
                 'lg:flex-row',
                 className
             )}

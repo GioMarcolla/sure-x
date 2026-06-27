@@ -52,10 +52,10 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
     return (
         <section
             id="sign-up"
-            className={cn('mt-16 pt-16', className)}
+            className={cn('mt-32 pt-16', className)}
             {...props}
         >
-            <SureBasicCard className="flex flex-col items-center gap-8 p-16">
+            <SureBasicCard className="flex flex-col items-center gap-8 p-32">
                 <h2 className="text-5xl font-black italic sm:text-6xl md:text-7xl">
                     Sign up for the latest news!
                 </h2>

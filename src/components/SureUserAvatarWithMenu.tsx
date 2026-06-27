@@ -66,7 +66,7 @@ const SureUserAvatarWithMenu: FC<SureUserMenuProps> = ({
             </SureBasicButton>
             {open && (
                 <SureBasicCard
-                    className="absolute right-0 z-999 mt-2 w-48 rounded-xl bg-(--bg-strong) p-0"
+                    className="absolute right-0 z-999! mt-2 w-48 gap-0 rounded-xl bg-(--bg-strong) p-0"
                     role="menu"
                 >
                     <div className="absolute -top-1.75 right-3.5 h-3 w-3 rotate-45 border border-(--border-color) border-r-transparent! border-b-transparent! bg-(--bg-strong)"></div>

@@ -16,7 +16,7 @@ const Home: FC<HomeProps> = (): ReactElement => {
         <>
             <SureStarfield />
 
-            <SureHeader />
+            <SureHeader className="z-99" />
             <main className="px-[5%]">
                 <SureHero />
                 <SureResearch />

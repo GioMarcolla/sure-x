@@ -1,6 +1,6 @@
 const SureFooter = () => {
     return (
-        <footer className="mt-32">
+        <footer className="mt-32 pt-16">
             <div className="flex items-center justify-center border-t-2 border-(--border-color) p-8 gap-8 text-center text-(--ink) backdrop-blur-lg">
                 <p>
                     &copy; {new Date().getFullYear()} SurePlay. All rights

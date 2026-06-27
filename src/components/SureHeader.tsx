@@ -11,7 +11,7 @@ const SureHeader: FC<SureHeaderProps> = ({
     return (
         <header
             className={cn(
-                'flex w-full items-center justify-between border-b border-(--border-color-strong) px-[5%] backdrop-blur-lg',
+                'flex w-full items-center justify-between border-b border-(--border-color-strong) px-[5%] backdrop-blur-lg bg-(--bg)',
                 className
             )}
             {...props}

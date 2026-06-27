@@ -74,7 +74,7 @@ const SureFeatures: FC<SureFeaturesProps> = ({
         <section
             id="features"
             className={cn(
-                'mt-16 flex flex-col items-center justify-center gap-8 pt-16',
+                'mt-16 flex flex-col items-center justify-center gap-8 pt-32',
                 className
             )}
             {...props}
@@ -101,7 +101,7 @@ const SureFeatures: FC<SureFeaturesProps> = ({
                     to provide better suggestions over time.
                 </p>
             </div>
-            <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 mt-16">
                 {FEATURES.map((feature, index) => (
                     <SureLoadingCard
                         key={'feature-' + index}

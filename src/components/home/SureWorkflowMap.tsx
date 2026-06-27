@@ -52,7 +52,7 @@ const SureWorkflowMap: FC<SureWorkflowMapProps> = ({
         <section
             id="how-it-works"
             className={cn(
-                'mt-16 flex w-full flex-col items-center justify-center gap-8 pt-16',
+                'mt-16 flex w-full flex-col items-center justify-center gap-8 pt-32',
                 className
             )}
             {...props}
@@ -82,7 +82,7 @@ const SureWorkflowMap: FC<SureWorkflowMapProps> = ({
             </p>
             <div
                 className={cn(
-                    'flex flex-col gap-16',
+                    'flex flex-col gap-16 mt-16',
                     'lg:flex-row'
                 )}
                 style={{

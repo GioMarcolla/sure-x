@@ -46,7 +46,7 @@ const SureNumbers: FC<SureNumbersProps> = ({
     return (
         <section
             className={cn(
-                'mt-16 grid grid-cols-1 items-stretch justify-between gap-8 pt-16',
+                'mt-16 grid grid-cols-1 items-stretch justify-between gap-8 pt-32',
                 'md:grid-cols-2',
                 'lg:grid-cols-4',
                 className

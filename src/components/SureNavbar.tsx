@@ -6,29 +6,41 @@ import SureLogo from '@/components/ui/SureLogo';
 import { cn } from '@/lib/tailwind.utils';
 import SureUserNav from '@/components/SureUserNav';
 import SureButton from '@/components/ui/SureButton';
-import { MenuIcon } from 'lucide-react';
+import {
+    Book,
+    CircleQuestionMark,
+    Home,
+    LayoutGrid,
+    LucideIcon,
+    MenuIcon,
+} from 'lucide-react';
 
 type MENU_ITEM = {
     label: string;
     href: string;
+    icon: LucideIcon;
 };
 
 const MENU_ITENS: Array<MENU_ITEM> = [
     {
         label: 'Home',
         href: '/#home',
+        icon: Home,
     },
     {
         label: 'Research',
         href: '/#research',
+        icon: Book,
     },
     {
         label: 'How it works',
         href: '/#how-it-works',
+        icon: CircleQuestionMark,
     },
     {
         label: 'Features',
         href: '/#features',
+        icon: LayoutGrid,
     },
 ] as const;
 
@@ -64,7 +76,7 @@ const SureNavbar: FC<SureNavbarProps> = ({
         >
             <div
                 className={cn(
-                    'flex w-full grow justify-between',
+                    'flex w-full grow justify-between items-center',
                     'md:w-min md:grow-0'
                 )}
             >
@@ -89,21 +101,27 @@ const SureNavbar: FC<SureNavbarProps> = ({
             >
                 <div
                     className={cn(
-                        'flex grow flex-col items-center justify-center gap-0',
-                        'md:flex-row md:gap-8'
+                        'grid grow grid-cols-2 grid-rows-2 items-center justify-center gap-px bg-(--border-color)',
+                        'md:flex md:flex-row md:gap-8 md:bg-transparent'
                     )}
                 >
-                    {MENU_ITENS.map((item, index) => (
-                        <Link
-                            key={'nav-menu-item-' + index}
-                            href={item.href}
-                            className={cn(
-                                'px-4 py-2 text-base text-(--ink-muted) transition-colors hover:text-(--accent-strong)'
-                            )}
-                        >
-                            {item.label}
-                        </Link>
-                    ))}
+                    {MENU_ITENS.map((item, index) => {
+                        return (
+                            <Link
+                                key={'nav-menu-item-' + index}
+                                href={item.href}
+                                className={cn(
+                                    `row-start-${Math.floor(index / 2)} col-start-${index % 2}`,
+                                    'flex aspect-square flex-col items-center justify-center gap-4 bg-(--bg) px-4 py-2 text-base text-(--ink-muted) transition-colors',
+                                    'md:aspect-auto md:flex-row md:justify-center md:gap-2',
+                                    'hover:text-(--accent-strong)'
+                                )}
+                            >
+                                <item.icon size={20} />
+                                {item.label}
+                            </Link>
+                        );
+                    })}
                 </div>
                 <SureUserNav />
             </div>

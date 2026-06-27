@@ -13,7 +13,7 @@ const SureResearch: FC<SureResearchProps> = ({
         <section
             id="research"
             className={cn(
-                'mt-16 flex flex-col items-center gap-8 px-32 pt-16',
+                'mt-16 flex flex-col items-center gap-8 px-32 pt-32',
                 className
             )}
             {...props}
