@@ -57,7 +57,7 @@ const SureRegisterForm: FC<SureRegisterFormProps> = ({
         />,
         <SureInput
             id={FORM_ID + '-password'}
-            type="text"
+            type="password"
             placeholder="Enter your password"
             value={password}
             onChange={(ev) => setPassword(ev.target.value)}
@@ -68,8 +68,8 @@ const SureRegisterForm: FC<SureRegisterFormProps> = ({
             required
         />,
         <SureInput
-            id={FORM_ID + '-name'}
-            type="text"
+            id={FORM_ID + '-confirm-password'}
+            type="password"
             placeholder="Confirm your password"
             value={confirmPassword}
             onChange={(ev) => setConfirmPassword(ev.target.value)}
