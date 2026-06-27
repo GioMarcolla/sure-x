@@ -18,6 +18,7 @@ type SureInputProps = InputHTMLAttributes<HTMLInputElement> & {
     required?: boolean;
     rule: GenericSchema;
     validateOn?: 'blur' | 'change' | 'both';
+    label?: string;
 };
 
 const SureInput: FC<SureInputProps> = memo(
@@ -30,6 +31,7 @@ const SureInput: FC<SureInputProps> = memo(
         className,
         onChange,
         onBlur,
+        label,
         ...props
     }) => {
         const [error, setError] = useState<string | undefined>();
@@ -37,7 +39,7 @@ const SureInput: FC<SureInputProps> = memo(
         const validate = useCallback(
             (value: string) => {
                 const result = safeParse(rule, value);
-                if (!result.success) {
+                if (value.length && !result.success) {
                     setError(result.issues[0]?.message ?? 'Invalid value');
                 } else {
                     setError(undefined);
@@ -49,11 +51,17 @@ const SureInput: FC<SureInputProps> = memo(
         const handleChange = useCallback(
             (ev: ChangeEvent<HTMLInputElement>) => {
                 if (
-                    ev.target.value &&
+                    ev.target.value.length &&
                     (validateOn === 'change' || validateOn === 'both')
                 ) {
                     validate(ev.target.value);
+                } else if (
+                    !ev.target.value.length &&
+                    (validateOn === 'change' || validateOn === 'both')
+                ) {
+                    setError(undefined);
                 }
+
                 onChange?.(ev);
             },
             [validateOn, validate, onChange]
@@ -62,11 +70,17 @@ const SureInput: FC<SureInputProps> = memo(
         const handleBlur = useCallback(
             (ev: ReactFocusEvent<HTMLInputElement>) => {
                 if (
-                    ev.target.value &&
+                    ev.target.value.length &&
                     (validateOn === 'blur' || validateOn === 'both')
                 ) {
                     validate(ev.currentTarget.value);
+                } else if (
+                    !ev.target.value.length &&
+                    (validateOn === 'change' || validateOn === 'both')
+                ) {
+                    setError(undefined);
                 }
+
                 onBlur?.(ev);
             },
             [validateOn, validate, onBlur]
@@ -74,6 +88,11 @@ const SureInput: FC<SureInputProps> = memo(
 
         return (
             <div className={cn('h-fit w-full', className)}>
+                {label && label.length > 0 ? (
+                    <p className={cn('pl-2 mb-1 text-base text-(--ink)')}>
+                        {label + ':'}
+                    </p>
+                ) : null}
                 <input
                     id={id}
                     name={id}

@@ -8,7 +8,6 @@ import SureInput from '@/components/ui/SureInput';
 import SureRotatingBackground from '../ui/SureRotatingBackground';
 import SureForm, { SubmitResultType } from '../SureForm';
 import SureNestedInputs from '../ui/SureNestedInputs';
-import Error from 'next/error';
 import newsSignupSchema from '@/lib/schema/newsSignup.vSchema';
 
 const FORM_ID: string = 'home-news-signup-form';
@@ -23,8 +22,6 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
     const [name, setName] = useState<string>('');
 
     const handleSubmit = async (): Promise<SubmitResultType> => {
-        if (!email.trim()) return { ok: true };
-
         try {
             const res = await fetch('/api/newsletter', {
                 method: 'POST',
@@ -111,7 +108,7 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
                 </p>
 
                 <SureForm
-                    id="home-news-signup-form"
+                    id={FORM_ID}
                     submitHandler={handleSubmit}
                     className={cn('max-w-[70%]')}
                     submitBtn={submitBtn}

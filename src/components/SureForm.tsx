@@ -42,6 +42,7 @@ type SureFormProps = FormHTMLAttributes<HTMLFormElement> & {
     cancelBtn?: ReactElement<any, typeof SureButton>;
     stackBtns?: boolean;
     btnsPosition?: 'top' | 'right' | 'bottom' | 'left';
+    inlineFields?: boolean;
     submitHandler: () => Promise<SubmitResultType>;
 };
 
@@ -54,6 +55,7 @@ const SureForm: FC<SureFormProps> = ({
     cancelBtn = undefined,
     stackBtns = false,
     btnsPosition = 'bottom',
+    inlineFields = false,
     ...props
 }): ReactElement => {
     const [error, setError] = useState<string | undefined>();
@@ -95,11 +97,17 @@ const SureForm: FC<SureFormProps> = ({
                 disabled={status === STATUS.LOADING}
                 className={cn(
                     'm-auto mt-8 flex w-full flex-col items-baseline justify-center gap-4',
-                    'lg:flex-row',
+                    inlineFields ?? 'lg:flex-row',
                     className
                 )}
             >
-                <div className="flex w-full flex-col gap-4 lg:flex-row">
+                <div
+                    className={cn(
+                        'flex w-full flex-col gap-2',
+                        inlineFields ?? 'gap-4',
+                        inlineFields ?? 'lg:flex-row'
+                    )}
+                >
                     {...inputs}
                 </div>
 
@@ -107,6 +115,7 @@ const SureForm: FC<SureFormProps> = ({
                     className={cn(
                         `flex-${stackBtns ? 'col' : 'row'}`,
                         stackBtns ? 'w-full' : 'w-fit',
+                        btnsPosition === 'bottom' ? 'self-end' : '',
                         'flex flex-wrap'
                     )}
                 >
