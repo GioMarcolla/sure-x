@@ -61,7 +61,12 @@ const SureNumbers: FC<SureNumbersProps> = ({
                         className="group relative mt-16 flex flex-col items-center gap-4 overflow-visible pt-16"
                     >
                         <div
-                            className="absolute z-10 flex h-24 w-24 -translate-y-[calc(100%+1rem)] items-center justify-center rounded-2xl text-white shadow-xl ring-4 ring-white/10 transition-all duration-300 group-hover:scale-110 group-hover:-rotate-12 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                            className={cn(
+                                '-translate-y-[calc(100%+1rem)]',
+                                'transition-all duration-30',
+                                'absolute z-10 flex h-24 w-24 items-center justify-center rounded-2xl text-white shadow-xl ring-4 ring-white/10',
+                                'group-hover:scale-110 group-hover:-rotate-12 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]'
+                            )}
                             style={{ backgroundImage: item.tone }}
                         >
                             <Icon
@@ -71,10 +76,21 @@ const SureNumbers: FC<SureNumbersProps> = ({
                             />
                         </div>
 
-                        <h3 className="mt-8 text-5xl font-black tracking-tighter text-(--ink) sm:text-6xl">
+                        <h3
+                            className={cn(
+                                'mt-8 text-5xl font-black tracking-tighter text-(--ink)',
+                                'sm:text-6xl'
+                            )}
+                        >
                             {item.stat}
                         </h3>
-                        <p className="text-lg text-(--ink-muted) sm:text-xl md:text-2xl">
+                        <p
+                            className={cn(
+                                'text-lg text-(--ink-muted)',
+                                'sm:text-xl',
+                                'md:text-2xl'
+                            )}
+                        >
                             {item.label}
                         </p>
                     </SureBasicCard>

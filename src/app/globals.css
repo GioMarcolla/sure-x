@@ -282,3 +282,21 @@ h1 {
         opacity: 0;
     }
 }
+
+@keyframes breathing-spin {
+    0% {
+        transform: scaleY(1) rotate(0deg);
+    }
+    25% {
+        transform: scaleY(2) rotate(90deg);
+    }
+    50% {
+        transform: scaleY(1) rotate(180deg);
+    }
+    75% {
+        transform: scaleY(2) rotate(270deg);
+    }
+    100% {
+        transform: scaleY(1) rotate(360deg);
+    }
+}

@@ -15,7 +15,7 @@ const SureRotatingBackground: FC<SureRotatingBackgroundProps> = ({
     return (
         <div
             className={cn(
-                'pointer-events-none absolute inset-0 top-[10%] -left-full h-[80%] w-[300%] origin-center opacity-30 will-change-transform',
+                'pointer-events-none absolute inset-0 top-[10%] -left-full min-h-[80%] w-[300%] origin-center opacity-30 will-change-transform',
                 className
             )}
             style={{
