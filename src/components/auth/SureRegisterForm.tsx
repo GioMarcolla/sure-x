@@ -1,10 +1,10 @@
 'use client';
 
 import { FC, HTMLAttributes, ReactElement, useState } from 'react';
-import SureForm, { SubmitResultType } from '../SureForm';
+import SureForm, { SubmitResultType } from '@/components/SureForm';
 import SureButton from '@/components/ui/SureButton';
 import { cn } from '@/lib/tailwind.utils';
-import SureInput from '../ui/SureInput';
+import SureInput from '@/components/ui/SureInput';
 import registerSchema from '@/lib/schema/register.vSchema';
 
 const FORM_ID: string = 'home-news-signup-form';
@@ -17,6 +17,7 @@ const SureRegisterForm: FC<SureRegisterFormProps> = ({
     onSuccess,
 }): ReactElement => {
     const [email, setEmail] = useState<string | undefined>();
+    const [username, setUsername] = useState<string | undefined>();
     const [password, setPassword] = useState<string | undefined>();
     const [confirmPassword, setConfirmPassword] = useState<
         string | undefined
@@ -27,7 +28,7 @@ const SureRegisterForm: FC<SureRegisterFormProps> = ({
             const res = await fetch('/api/newsletter', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, name }),
+                body: JSON.stringify({ email, username, password }),
             });
 
             const data = await res.json();
@@ -44,15 +45,27 @@ const SureRegisterForm: FC<SureRegisterFormProps> = ({
 
     const fields = [
         <SureInput
-            id={FORM_ID + '-email'}
+            id={FORM_ID + '-username'}
             type="text"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(ev) => setUsername(ev.target.value)}
+            aria-autocomplete="both"
+            autoComplete="username"
+            rule={registerSchema.entries.username}
+            label="Username"
+            required
+        />,
+        <SureInput
+            id={FORM_ID + '-email'}
+            type="email"
             placeholder="Enter your email"
             value={email}
             onChange={(ev) => setEmail(ev.target.value)}
             aria-autocomplete="both"
             autoComplete="email"
             rule={registerSchema.entries.email}
-            label='Username'
+            label="Email"
             required
         />,
         <SureInput
@@ -64,7 +77,7 @@ const SureRegisterForm: FC<SureRegisterFormProps> = ({
             aria-autocomplete="both"
             autoComplete="new-password"
             rule={registerSchema.entries.password}
-            label='New password'
+            label="New password"
             required
         />,
         <SureInput
@@ -76,7 +89,7 @@ const SureRegisterForm: FC<SureRegisterFormProps> = ({
             aria-autocomplete="both"
             autoComplete="new-password"
             rule={registerSchema.entries.passwordConfirm}
-            label='Confirm password'
+            label="Confirm password"
             required
         />,
     ];

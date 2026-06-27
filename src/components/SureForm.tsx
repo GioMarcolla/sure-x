@@ -8,22 +8,35 @@ import {
     useState,
     isValidElement,
     cloneElement,
-    Children,
-    useEffect,
 } from 'react';
-import SureInput, { SureInputProps } from '@/components/ui/SureInput';
+import SureInput from '@/components/ui/SureInput';
 import SureButton from '@/components/ui/SureButton';
 import { cn } from '@/lib/tailwind.utils';
 import SureNestedInputs from './ui/SureNestedInputs';
-import { TypeOf } from 'better-auth';
 import { Loader } from 'lucide-react';
-import { ObjectSchema } from 'valibot';
 
 const STATUS = {
     IDLE: 'idle',
     LOADING: 'loading',
     SUCCESS: 'success',
     ERROR: 'error',
+} as const;
+
+type BTN_POSITION = 'top' | 'right' | 'bottom' | 'left';
+
+const POSITION_MAP: Record<'SELF' | 'FLEX', Record<BTN_POSITION, string>> = {
+    SELF: {
+        bottom: 'self-end',
+        top: 'self-end',
+        left: 'self-start',
+        right: 'self-start',
+    },
+    FLEX: {
+        bottom: 'flex-col',
+        top: 'flex-col-reversed',
+        left: 'flex-row-reversed',
+        right: 'flex-row',
+    },
 } as const;
 
 type StatusType = (typeof STATUS)[keyof typeof STATUS];
@@ -41,7 +54,7 @@ type SureFormProps = FormHTMLAttributes<HTMLFormElement> & {
     submitBtn: ReactElement<any, typeof SureButton>;
     cancelBtn?: ReactElement<any, typeof SureButton>;
     stackBtns?: boolean;
-    btnsPosition?: 'top' | 'right' | 'bottom' | 'left';
+    btnsPosition?: BTN_POSITION;
     inlineFields?: boolean;
     submitHandler: () => Promise<SubmitResultType>;
 };
@@ -97,15 +110,15 @@ const SureForm: FC<SureFormProps> = ({
                 disabled={status === STATUS.LOADING}
                 className={cn(
                     'm-auto mt-8 flex w-full flex-col items-baseline justify-center gap-4',
-                    inlineFields ?? 'lg:flex-row',
+                    POSITION_MAP.FLEX[btnsPosition],
                     className
                 )}
             >
                 <div
                     className={cn(
                         'flex w-full flex-col gap-2',
-                        inlineFields ?? 'gap-4',
-                        inlineFields ?? 'lg:flex-row'
+                        inlineFields ? 'gap-4' : '',
+                        inlineFields ? 'lg:flex-row' : ''
                     )}
                 >
                     {...inputs}
@@ -115,7 +128,7 @@ const SureForm: FC<SureFormProps> = ({
                     className={cn(
                         `flex-${stackBtns ? 'col' : 'row'}`,
                         stackBtns ? 'w-full' : 'w-fit',
-                        btnsPosition === 'bottom' ? 'self-end' : '',
+                        POSITION_MAP.SELF[btnsPosition],
                         'flex flex-wrap'
                     )}
                 >

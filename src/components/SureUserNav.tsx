@@ -9,6 +9,7 @@ import SureRegisterModal from '@/components/SureRegisterModal';
 import { cn } from '@/lib/tailwind.utils';
 import SureThemeButton from '@/components/home/SureThemeButton';
 import useIsMobile from '@/hooks/useIsMobile';
+import { FileText, LogIn } from 'lucide-react';
 
 type SureUserNavProps = HTMLAttributes<HTMLDivElement> & {};
 
@@ -52,8 +53,8 @@ const SureUserNav: FC<SureUserNavProps> = ({
             ) : (
                 <div
                     className={cn(
-                        'relative flex flex-col-reverse items-center gap-0',
-                        'md:flex-row md:gap-8',
+                        'flex min-h-12 w-full grow-0 flex-row items-center gap-4',
+                        'lg:w-fit lg:gap-8',
                         className
                     )}
                     {...props}
@@ -63,20 +64,26 @@ const SureUserNav: FC<SureUserNavProps> = ({
                         onClick={() => setIsRegisterModalOpen(true)}
                         variant="ghost"
                     >
-                        Get started
+                        <div className="flex w-max items-center gap-2">
+                            <FileText size={16} />
+                            Get started
+                        </div>
                     </SureButton>
 
                     <SureButton
-                        className="p-0! text-base text-(--ink-muted) transition-colors hover:text-(--ink)"
+                        className="flex p-0! text-base text-(--ink-muted) transition-colors hover:text-(--ink)"
                         onClick={() => setIsLoginModalOpen(true)}
                         variant="ghost"
                     >
-                        Sign in
+                        <div className="flex w-max items-center gap-2">
+                            <LogIn size={16} />
+                            Sign in
+                        </div>
                     </SureButton>
                     <SureThemeButton
                         className={cn(
-                            'absolute top-0 left-0 border border-(--card-border) bg-(--glass-bg) shadow-sm backdrop-blur-sm',
-                            'md:relative'
+                            'ml-auto border border-(--card-border) bg-(--glass-bg) shadow-sm backdrop-blur-sm',
+                            'lg:m-0'
                         )}
                     />
                 </div>

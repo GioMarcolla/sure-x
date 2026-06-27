@@ -82,7 +82,7 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
 
     return (
         <section
-            id="sign-up"
+            id="news-sign-up"
             className={cn('mt-32 pt-16', className)}
             {...props}
         >
@@ -113,6 +113,8 @@ const SureNewsSignUp: FC<SureNewsSignUpProps> = ({
                     className={cn('max-w-[70%]')}
                     submitBtn={submitBtn}
                     inputs={fields}
+                    btnsPosition='right'
+                    inlineFields
                 />
             </SureBasicCard>
         </section>

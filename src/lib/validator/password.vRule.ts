@@ -11,15 +11,15 @@ const passwordRule = v.pipe(
         if (typeof value !== 'string') return false;
 
         // Check for sequences longer than 3 (e.g., 1234, abcd, ABCD)
-        const hasNumericSequence = /012|123|234|345|456|567|678|789|890/.test(
+        const hasNumericSequence = /0123|1234|2345|3456|4567|5678|6789|7890/.test(
             value
         );
         const hasLowerSequence =
-            /abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz/.test(
+            /abcd|bcde|cdef|defg|efgh|fghi|ghij|hijk|ijkl|jklm|klmn|lmno|mnop|nopq|opqr|pqrs|qrst|rstu|stuv|tuvw|uvwx|vwxy|wxyz/.test(
                 value
             );
         const hasUpperSequence =
-            /ABC|BCD|CDE|DEF|EFG|FGH|GHI|HIJ|IJK|JKL|KLM|LMN|MNO|NOP|OPQ|PQR|QRS|RST|STU|TUV|UVW|VWX|WXY|XYZ/.test(
+            /ABCD|BCDE|CDEF|DEFG|EFGH|FGHI|GHIJ|HIJK|IJKL|JKLM|KLMN|LMNO|MNOP|NOPQ|OPQR|PQRS|QRST|RSTU|STUV|TUVW|UVWX|VWXY|WXYZ/.test(
                 value
             );
 

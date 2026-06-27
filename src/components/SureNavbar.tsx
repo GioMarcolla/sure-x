@@ -13,12 +13,14 @@ import {
     LayoutGrid,
     LucideIcon,
     MenuIcon,
+    Rss,
+    ShieldUser,
 } from 'lucide-react';
 
 type MENU_ITEM = {
     label: string;
     href: string;
-    icon: LucideIcon;
+    icon?: LucideIcon;
 };
 
 const MENU_ITENS: Array<MENU_ITEM> = [
@@ -42,6 +44,16 @@ const MENU_ITENS: Array<MENU_ITEM> = [
         href: '/#features',
         icon: LayoutGrid,
     },
+    {
+        label: 'News',
+        href: '/#news-sign-up',
+        icon: Rss,
+    },
+    {
+        label: '#team',
+        href: '/#team',
+        icon: ShieldUser,
+    },
 ] as const;
 
 type SureNavbarProps = HTMLAttributes<HTMLDivElement> & {};
@@ -53,7 +65,7 @@ const SureNavbar: FC<SureNavbarProps> = ({
     const [collapsed, setCollapsed] = useState<boolean>(true);
 
     useEffect(() => {
-        const mql = window.matchMedia('(min-width: 768px)');
+        const mql = window.matchMedia('(min-width: 1024px)');
 
         if (mql.matches) setCollapsed(true);
 
@@ -69,15 +81,15 @@ const SureNavbar: FC<SureNavbarProps> = ({
         <nav
             className={cn(
                 'my-4 flex w-full flex-col items-center justify-center gap-4 p-0 text-sm font-semibold',
-                'md:flex-row md:gap-8 md:text-base',
+                'lg:flex-row lg:gap-8 md:text-base',
                 className
             )}
             {...props}
         >
             <div
                 className={cn(
-                    'flex w-full grow justify-between items-center',
-                    'md:w-min md:grow-0'
+                    'flex w-full grow items-center justify-between',
+                    'lg:w-min lg:grow-0'
                 )}
             >
                 <div>
@@ -86,7 +98,7 @@ const SureNavbar: FC<SureNavbarProps> = ({
                     </Link>
                 </div>
                 <SureButton
-                    className={cn('md:hidden')}
+                    className={cn('lg:hidden')}
                     onClick={() => setCollapsed((prev) => !prev)}
                 >
                     <MenuIcon />
@@ -96,13 +108,14 @@ const SureNavbar: FC<SureNavbarProps> = ({
                 className={cn(
                     collapsed ? 'hidden' : 'flex',
                     'w-full grow flex-col-reverse',
-                    'md:flex md:flex-row!'
+                    'lg:flex lg:flex-row!'
                 )}
             >
                 <div
                     className={cn(
-                        'grid grow grid-cols-2 grid-rows-2 items-center justify-center gap-px bg-(--border-color)',
-                        'md:flex md:flex-row md:gap-8 md:bg-transparent'
+                        'grid grow w-full grid-cols-3 grid-rows-2 items-center justify-center gap-px bg-(--border-color)',
+                        'md:grid-cols-6 md:grid-rows-1',
+                        'lg:flex lg:flex-row lg:gap-4 lg:bg-transparent'
                     )}
                 >
                     {MENU_ITENS.map((item, index) => {
@@ -112,18 +125,19 @@ const SureNavbar: FC<SureNavbarProps> = ({
                                 href={item.href}
                                 className={cn(
                                     `row-start-${Math.floor(index / 2)} col-start-${index % 2}`,
-                                    'flex aspect-square flex-col items-center justify-center gap-4 bg-(--bg) px-4 py-2 text-base text-(--ink-muted) transition-colors',
-                                    'md:aspect-auto md:flex-row md:justify-center md:gap-2',
+                                    'flex aspect-square flex-col items-center justify-center gap-px bg-(--bg) px-4 py-2 text-sm text-(--ink-muted) transition-colors',
+                                    'lg:aspect-auto lg:flex-row lg:justify-center lg:gap-2 lg:text-sm',
+                                    'xl:text-base',
                                     'hover:text-(--accent-strong)'
                                 )}
                             >
-                                <item.icon size={20} />
+                                {item.icon ? <item.icon size={20} /> : null}
                                 {item.label}
                             </Link>
                         );
                     })}
                 </div>
-                <SureUserNav />
+                <SureUserNav className='w-full' />
             </div>
         </nav>
     );
